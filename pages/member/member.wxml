@@ -1,0 +1,60 @@
+<!--pages/member/member.wxml - 会员中心（喜茶极简风）-->
+<view class="page-member">
+
+  <nav-bar title="会员中心" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+
+  <!-- 会员卡 -->
+  <view class="member-card">
+    <view class="card-level-row">
+      <text class="card-level">{{memberInfo.level}}</text>
+      <text class="card-level-tag">●</text>
+    </view>
+    <view class="card-points-row">
+      <text class="card-points-num">{{memberInfo.points}}</text>
+      <text class="card-points-label">积分</text>
+    </view>
+    <view class="card-next-row">
+      <text class="card-next-text">距 {{memberInfo.nextLevel}} 还差 {{memberInfo.pointsToNext}} 积分</text>
+    </view>
+    <view class="card-progress">
+      <view class="card-progress-fill" style="width: {{memberInfo.progressPercent}}%"></view>
+    </view>
+  </view>
+
+  <!-- 会员等级说明 -->
+  <view class="section">
+    <view class="section-title">
+      <text class="title-text">等级体系</text>
+    </view>
+    <view class="levels-list">
+      <view class="level-item" wx:for="{{levels}}" wx:key="name">
+        <view class="level-left">
+          <text class="level-name">{{item.name}}</text>
+          <text class="level-desc">{{item.desc}}</text>
+        </view>
+        <view class="level-points">
+          <text class="level-points-text">{{item.minPoints > 0 ? item.minPoints + '积分起' : ''}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 会员权益 -->
+  <view class="section">
+    <view class="section-title">
+      <text class="title-text">会员权益</text>
+    </view>
+    <view class="benefits-list">
+      <view class="benefit-item" wx:for="{{benefits}}" wx:key="title">
+        <view class="benefit-dot"></view>
+        <view class="benefit-info">
+          <text class="benefit-title">{{item.title}}</text>
+          <text class="benefit-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-spacer"></view>
+
+</view>

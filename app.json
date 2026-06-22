@@ -1,0 +1,55 @@
+{
+  "usingComponents": {
+    "custom-tabbar": "/components/custom-tabbar/custom-tabbar"
+  },
+  "pages": [
+    "pages/index/index",
+    "pages/products/products",
+    "pages/product-detail/product-detail",
+    "pages/cases/cases",
+    "pages/news/news",
+    "pages/mine/mine",
+    "pages/cart/cart",
+    "pages/order/order",
+    "pages/about/about",
+    "pages/contact/contact",
+    "pages/evaluation/evaluation",
+    "pages/patents/patents",
+    "pages/member/member",
+    "pages/news-list/news-list"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "赛宝特",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F8F7F4"
+  },
+  "tabBar": {
+    "custom": true,
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "color": "#999999",
+    "selectedColor": "#2D5A3D",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/products/products",
+        "text": "产品"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "案例"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "cloud": true,
+  "sitemapLocation": "sitemap.json"
+}

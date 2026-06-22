@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "nav-bar": "/components/nav-bar/nav-bar",
+    "section-header": "/components/section-header/section-header"
+  },
+  "navigationBarTitleText": "项目案例"
+}

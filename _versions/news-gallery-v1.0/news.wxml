@@ -1,0 +1,110 @@
+<!--pages/news/news.wxml - 咨询页（画廊风格 + 竖排文字）-->
+<view class="page-consult">
+
+  <nav-bar title="咨询" showBack="{{false}}"></nav-bar>
+
+  <!-- ==================== 画廊列表 ==================== -->
+  <view class="gallery-wrap" wx:if="{{!showDetail}}">
+
+    <!-- Hero 标题 -->
+    <view class="gallery-hero">
+      <text class="hero-en">C O N S U L T</text>
+      <view class="hero-vertical">
+        <text class="hero-char">咨</text>
+        <text class="hero-char">询</text>
+      </view>
+    </view>
+
+    <!-- 分类筛选 -->
+    <view class="filter-row" wx:if="{{showFilter}}">
+      <view class="filter-item {{activeFilter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">
+        <text class="filter-text">全部</text>
+      </view>
+      <view class="filter-item {{activeFilter === 'case' ? 'active' : ''}}" bindtap="setFilter" data-filter="case">
+        <text class="filter-text">案例</text>
+      </view>
+      <view class="filter-item {{activeFilter === 'news' ? 'active' : ''}}" bindtap="setFilter" data-filter="news">
+        <text class="filter-text">资讯</text>
+      </view>
+    </view>
+
+    <!-- 画廊列表（交错排版） -->
+    <view class="gallery-list">
+      <view
+        class="gallery-item {{index % 2 === 0 ? 'img-left' : 'img-right'}}"
+        wx:for="{{galleryItems}}"
+        wx:key="_id"
+        wx:for-index="index"
+        bindtap="goToDetail"
+        data-id="{{item._id}}"
+      >
+        <view class="item-image-wrap">
+          <image lazy-load src="{{item.image}}" mode="aspectFill" class="item-image"></image>
+          <view class="item-type-tag">
+            <text class="tag-text">{{item.type === 'case' ? '案例' : '资讯'}}</text>
+          </view>
+        </view>
+        <view class="item-info">
+          <text class="item-subtitle" style="writing-mode: vertical-lr;">{{item.subtitle}}</text>
+          <text class="item-title-vertical" style="writing-mode: vertical-lr;">{{item.title}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- ==================== 详情页 ==================== -->
+  <view class="detail-wrap" wx:if="{{showDetail && currentItem}}">
+
+    <!-- 返回按钮 -->
+    <view class="detail-back" bindtap="goBack">
+      <text class="back-arrow">←</text>
+      <text class="back-label">返回</text>
+    </view>
+
+    <!-- 标题区 -->
+    <view class="detail-hero">
+      <text class="detail-title">{{currentItem.title}}</text>
+      <view class="detail-meta">
+        <text class="meta-label">{{currentItem.type === 'case' ? '项目案例' : '农业资讯'}}</text>
+        <text class="meta-dot">·</text>
+        <text class="meta-text">{{currentItem.createTime}}</text>
+      </view>
+    </view>
+
+    <!-- 封面图 -->
+    <view class="detail-cover" wx:if="{{currentItem.image}}">
+      <image lazy-load src="{{currentItem.image}}" mode="aspectFill" class="cover-img"></image>
+    </view>
+
+    <!-- 案例详情 -->
+    <view class="detail-body" wx:if="{{currentItem.type === 'case'}}">
+      <text class="body-text">{{currentItem.description}}</text>
+      <view class="body-stats" wx:if="{{currentItem.stats}}">
+        <view class="stat-item" wx:for="{{currentItem.stats}}" wx:key="index" wx:for-item="val" wx:for-index="key">
+          <text class="stat-label">{{key}}</text>
+          <text class="stat-value">{{val}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 资讯详情 -->
+    <view class="detail-body" wx:if="{{currentItem.type === 'news'}}">
+      <rich-text class="body-rich" nodes="{{currentItem.content}}"></rich-text>
+    </view>
+
+    <!-- 底部 -->
+    <view class="detail-end">
+      <view class="end-divider"></view>
+      <text class="end-text">— END —</text>
+    </view>
+
+  </view>
+
+  <!-- 底部留白 -->
+  <view class="bottom-spacer"></view>
+
+  <!-- 自定义TabBar -->
+  <custom-tabbar selected="{{2}}" list="{{tabList}}"></custom-tabbar>
+
+</view>

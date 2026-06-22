@@ -1,0 +1,233 @@
+/* pages/contact/contact.wxss - 联系客服页（喜茶极简现代风） */
+
+.page-contact {
+  min-height: 100vh;
+  background: #FFFFFF;
+}
+
+/* ==================== Hero ==================== */
+.hero-section {
+  padding: 100rpx 64rpx 60rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-icon {
+  font-size: 72rpx;
+  margin-bottom: 20rpx;
+}
+
+.hero-title {
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 12rpx;
+}
+
+.hero-subtitle {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* ==================== Section ==================== */
+.section {
+  padding: 0 48rpx;
+  margin-bottom: 64rpx;
+}
+
+.section-title {
+  margin-bottom: 28rpx;
+}
+
+.title-text {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.title-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4rpx;
+  height: 28rpx;
+  background: #D0D0D0;
+  border-radius: 2rpx;
+}
+
+/* ==================== 联系方式列表 ==================== */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 28rpx 32rpx;
+}
+
+.contact-icon-wrap {
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F8F8F8;
+  border-radius: 16rpx;
+  flex-shrink: 0;
+}
+
+.contact-icon {
+  font-size: 34rpx;
+}
+
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label {
+  font-size: 20rpx;
+  color: #999999;
+  margin-bottom: 6rpx;
+}
+
+.contact-value {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 4rpx;
+}
+
+.contact-note {
+  font-size: 20rpx;
+  color: #999999;
+}
+
+.contact-arrow {
+  font-size: 28rpx;
+  color: #CCCCCC;
+}
+
+/* ==================== 留言表单 ==================== */
+.message-form {
+  padding: 36rpx;
+}
+
+.form-item {
+  margin-bottom: 28rpx;
+}
+
+.form-item:last-of-type {
+  margin-bottom: 36rpx;
+}
+
+.form-label {
+  display: block;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 14rpx;
+}
+
+.form-input {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 24rpx;
+  background: #FAFAFA;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #1A1A1A;
+  border: 2rpx solid #EEEEEE;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 220rpx;
+  padding: 20rpx 24rpx;
+  background: #FAFAFA;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #1A1A1A;
+  border: 2rpx solid #EEEEEE;
+  box-sizing: border-box;
+}
+
+.form-count {
+  display: block;
+  text-align: right;
+  font-size: 20rpx;
+  color: #CCCCCC;
+  margin-top: 8rpx;
+}
+
+.form-btn {
+  margin-top: 16rpx;
+}
+
+/* ==================== 常见问题 ==================== */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.faq-item {
+  padding: 28rpx 32rpx;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-q-text {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  flex: 1;
+}
+
+.faq-arrow {
+  font-size: 24rpx;
+  color: #CCCCCC;
+  transition: transform 0.3s ease;
+  margin-left: 16rpx;
+}
+
+.faq-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  border-top: 2rpx solid #EEEEEE;
+}
+
+.faq-a-text {
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 1.8;
+}
+
+/* ==================== 底部留白 ==================== */
+.bottom-spacer {
+  height: 80rpx;
+}

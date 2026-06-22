@@ -1,0 +1,141 @@
+/* components/product-card/product-card.wxss */
+
+.product-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  width: 400rpx;
+  height: 560rpx;
+}
+
+.product-card:active {
+  transform: scale(0.99);
+}
+
+.has-shadow {
+  box-shadow: var(--shadow-card);
+}
+
+/* 图片区域 */
+.card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 320rpx;
+  overflow: hidden;
+  background: var(--white-ivory);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+}
+
+.card-badge {
+  position: absolute;
+  top: 24rpx;
+  left: 24rpx;
+  padding: 8rpx 20rpx;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: var(--radius-round);
+  backdrop-filter: blur(10px);
+}
+
+.card-badge text {
+  font-size: var(--font-xs);
+  color: #FFFFFF;
+}
+
+.badge-green {
+  background: rgba(74, 124, 89, 0.9);
+}
+
+.badge-red {
+  background: rgba(198, 40, 40, 0.85);
+}
+
+/* 内容区域 */
+.card-body {
+  padding: 28rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  display: block;
+  font-size: var(--font-lg);
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 12rpx;
+}
+
+.card-desc {
+  display: block;
+  font-size: var(--font-sm);
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  margin-bottom: 20rpx;
+}
+
+/* 标签 */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 24rpx;
+}
+
+.card-tag {
+  padding: 6rpx 16rpx;
+  background: var(--white-ivory);
+  border-radius: var(--radius-round);
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+}
+
+/* 底部 */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.card-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 4rpx;
+}
+
+.card-price {
+  font-size: var(--font-xl);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.card-unit {
+  font-size: var(--font-xs);
+  color: var(--text-tertiary);
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.action-text {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.action-arrow {
+  font-size: 36rpx;
+  color: var(--text-tertiary);
+  font-weight: 300;
+}

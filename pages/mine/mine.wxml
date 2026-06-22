@@ -1,0 +1,113 @@
+<!--pages/mine/mine.wxml - 个人中心页-->
+<view class="page-mine">
+
+  <nav-bar title="我的" showBack="{{false}}"></nav-bar>
+
+  <!-- 用户信息 -->
+  <view class="user-section">
+    <view class="user-card">
+      <view class="user-avatar-wrap">
+        <image lazy-load src="{{userInfo.avatarUrl || '/avatar-default.png'}}" mode="aspectFill" class="user-avatar"></image>
+      </view>
+      <view class="user-info">
+        <text class="user-name">{{userInfo.nickName || '未登录'}}</text>
+        <text class="user-desc">赛宝特尊享会员</text>
+      </view>
+      <view class="user-login-btn" wx:if="{{!userInfo.nickName}}" bindtap="getUserProfile">
+        <text>登录</text>
+      </view>
+    </view>
+    <!-- 会员入口 -->
+    <view class="member-entry" bindtap="goToMember">
+      <view class="member-left">
+        <text class="member-text">会员中心</text>
+      </view>
+      <text class="member-arrow">→</text>
+    </view>
+  </view>
+
+  <!-- 订单入口 -->
+  <view class="section order-section">
+    <view class="section-title">
+      <text class="title-text">我的订单</text>
+      <view class="section-more" bindtap="goToOrders">
+        <text class="more-text">全部</text>
+        <text class="more-arrow">→</text>
+      </view>
+    </view>
+    <view class="order-grid">
+      <view class="order-item" bindtap="goToOrders" data-status="pending">
+        <text class="order-label">待确认</text>
+        <view class="order-badge" wx:if="{{orderCounts.pending > 0}}">{{orderCounts.pending}}</view>
+      </view>
+      <view class="order-item" bindtap="goToOrders" data-status="paid">
+        <text class="order-label">待发货</text>
+        <view class="order-badge" wx:if="{{orderCounts.paid > 0}}">{{orderCounts.paid}}</view>
+      </view>
+      <view class="order-item" bindtap="goToOrders" data-status="shipped">
+        <text class="order-label">待收货</text>
+        <view class="order-badge" wx:if="{{orderCounts.shipped > 0}}">{{orderCounts.shipped}}</view>
+      </view>
+      <view class="order-item" bindtap="goToOrders" data-status="completed">
+        <text class="order-label">已完成</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="section func-section">
+    <view class="func-list">
+      <view class="func-item" bindtap="goToCart">
+        <text class="func-label">购物车</text>
+        <view class="func-right">
+          <text class="func-badge" wx:if="{{cartCount > 0}}">{{cartCount}}</text>
+          <text class="func-arrow">→</text>
+        </view>
+      </view>
+      <view class="func-item" bindtap="goToAddress">
+        <text class="func-label">收货地址</text>
+        <text class="func-arrow">→</text>
+      </view>
+      <view class="func-item" bindtap="goToEvaluation">
+        <text class="func-label">我的评价</text>
+        <text class="func-arrow">→</text>
+      </view>
+      <view class="func-item" bindtap="goToContact">
+        <text class="func-label">联系客服</text>
+        <text class="func-arrow">→</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 其他功能 -->
+  <view class="section other-section">
+    <view class="section-title">
+      <text class="title-text">更多服务</text>
+    </view>
+    <view class="other-grid">
+      <view class="other-item" bindtap="goToAbout">
+        <text class="other-label">关于我们</text>
+      </view>
+      <view class="other-item" bindtap="goToPatents">
+        <text class="other-label">技术专利</text>
+      </view>
+      <view class="other-item" bindtap="goToNews">
+        <text class="other-label">农业资讯</text>
+      </view>
+      <view class="other-item" bindtap="shareApp">
+        <text class="other-label">分享好友</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 版本信息 -->
+  <view class="version-info">
+    <text class="version-text">赛宝特小程序 v1.0.0</text>
+  </view>
+
+  <view class="bottom-spacer"></view>
+
+  <!-- 自定义TabBar -->
+  <custom-tabbar selected="{{3}}" list="{{tabList}}"></custom-tabbar>
+
+</view>

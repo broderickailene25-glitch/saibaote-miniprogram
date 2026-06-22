@@ -1,0 +1,68 @@
+<!--pages/cart/cart.wxml - 购物车页-->
+<view class="page-cart">
+
+  <!-- 自定义导航栏 -->
+  <nav-bar title="购物车" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+
+  <!-- 购物车列表 -->
+  <view class="cart-list" wx:if="{{cartItems.length > 0}}">
+    <view
+      class="cart-item"
+      wx:for="{{cartItems}}"
+      wx:key="id"
+    >
+      <!-- 产品图片 -->
+      <view class="item-img-wrap" bindtap="goToDetail" data-id="{{item.id}}">
+        <image lazy-load src="{{item.image}}" mode="aspectFill" class="item-img"></image>
+      </view>
+
+      <!-- 产品信息 -->
+      <view class="item-info">
+        <view class="item-header">
+          <text class="item-name" bindtap="goToDetail" data-id="{{item.id}}">{{item.name}}</text>
+          <view class="item-delete" bindtap="removeItem" data-id="{{item.id}}">
+            <text class="delete-icon">×</text>
+          </view>
+        </view>
+        <text class="item-price">¥{{item.price}}</text>
+
+        <!-- 数量调整 -->
+        <view class="quantity-bar">
+          <view class="qty-btn {{item.quantity <= 1 ? 'disabled' : ''}}" bindtap="decreaseQty" data-id="{{item.id}}">
+            <text>−</text>
+          </view>
+          <text class="qty-number">{{item.quantity}}</text>
+          <view class="qty-btn" bindtap="increaseQty" data-id="{{item.id}}">
+            <text>+</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{cartItems.length === 0}}">
+    <text class="empty-icon">🛒</text>
+    <text class="empty-text">购物车是空的</text>
+    <view class="btn btn-outline empty-btn" bindtap="goToProducts">
+      <text>去逛逛</text>
+    </view>
+  </view>
+
+  <!-- 底部结算栏 -->
+  <view class="bottom-bar" wx:if="{{cartItems.length > 0}}">
+    <view class="bar-info">
+      <text class="bar-count">共 {{totalCount}} 件</text>
+      <text class="bar-price">¥{{totalPrice}}</text>
+    </view>
+    <view class="bar-right">
+      <view class="btn btn-primary bar-btn" bindtap="goToOrder">
+        <text>去结算</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部留白 -->
+  <view class="bottom-spacer" wx:if="{{cartItems.length > 0}}"></view>
+
+</view>

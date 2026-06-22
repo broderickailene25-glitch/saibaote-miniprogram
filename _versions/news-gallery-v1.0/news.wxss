@@ -1,0 +1,333 @@
+/* pages/news/news.wxss - 咨询页（画廊风格 + 竖排文字） */
+
+page {
+  --color-bg: #FAFAFA;
+  --color-card: #FFFFFF;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-text-tertiary: #999999;
+  --color-divider: #F0F0F0;
+  --color-green: #3A6B4F;
+  --color-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.04);
+  --color-shadow-hover: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+}
+
+.page-consult {
+  min-height: 100vh;
+  background: var(--color-bg);
+  padding-bottom: 120rpx;
+}
+
+/* ==================== 画廊容器 ==================== */
+.gallery-wrap {
+  padding-top: 20rpx;
+}
+
+/* ==================== Hero 标题区 ==================== */
+.gallery-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 32rpx;
+  padding: 20rpx 36rpx 40rpx;
+  border-bottom: 2rpx solid var(--color-divider);
+  margin: 0 28rpx 28rpx;
+}
+
+.hero-en {
+  font-size: 20rpx;
+  color: var(--color-text-tertiary);
+  letter-spacing: 6rpx;
+  font-weight: 300;
+  padding-top: 6rpx;
+}
+
+.hero-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 2rpx;
+}
+
+.hero-char {
+  font-size: 72rpx;
+  font-weight: 200;
+  color: var(--color-text-primary);
+  letter-spacing: 4rpx;
+  line-height: 1.1;
+}
+
+/* ==================== 分类筛选 ==================== */
+.filter-row {
+  display: flex;
+  gap: 40rpx;
+  padding: 0 36rpx 32rpx;
+}
+
+.filter-item {
+  position: relative;
+  padding: 6rpx 0;
+}
+
+.filter-text {
+  font-size: 26rpx;
+  color: var(--color-text-tertiary);
+  font-weight: 400;
+  transition: all 0.2s ease;
+}
+
+.filter-item.active .filter-text {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.filter-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4rpx;
+  left: 0;
+  right: 0;
+  height: 3rpx;
+  background: var(--color-text-primary);
+  border-radius: 2rpx;
+}
+
+/* ==================== 画廊列表（交错排版） ==================== */
+.gallery-list {
+  padding: 0 0 28rpx;
+}
+
+.gallery-item {
+  display: flex;
+  gap: 24rpx;
+  padding: 0 28rpx 48rpx;
+  margin-bottom: 32rpx;
+  border-bottom: 2rpx solid var(--color-divider);
+}
+
+.gallery-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* 图片（7成） */
+.item-image-wrap {
+  position: relative;
+  flex: 7;
+  height: 420rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 类型标签 */
+.item-type-tag {
+  position: absolute;
+  top: 14rpx;
+  right: 14rpx;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18rpx;
+  padding: 4rpx 14rpx;
+}
+
+.tag-text {
+  font-size: 18rpx;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  letter-spacing: 1rpx;
+}
+
+/* 文字信息（3成） — 所有文字竖排 */
+.item-info {
+  flex: 3;
+  display: flex;
+  flex-direction: row;
+  gap: 12rpx;
+  min-width: 0;
+  height: 420rpx;
+  padding: 12rpx 0;
+}
+
+/* 大标题竖排 */
+.item-title-vertical {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 2.0;
+  letter-spacing: 6rpx;
+  writing-mode: vertical-lr;
+  height: 420rpx;
+  max-height: 420rpx;
+  overflow: hidden;
+}
+
+/* 解释小字竖排 — 特别小 */
+.item-subtitle {
+  font-size: 18rpx;
+  font-weight: 300;
+  color: var(--color-text-tertiary);
+  line-height: 1.6;
+  letter-spacing: 3rpx;
+  writing-mode: vertical-lr;
+  height: 420rpx;
+  max-height: 420rpx;
+  overflow: hidden;
+  opacity: 0.7;
+}
+
+/* 交错：图片在左 */
+.gallery-item.img-left {
+  flex-direction: row;
+}
+
+/* 交错：图片在右 */
+.gallery-item.img-right {
+  flex-direction: row-reverse;
+}
+
+/* ==================== 详情页 ==================== */
+.detail-wrap {
+  padding: 0 36rpx 80rpx;
+}
+
+/* 返回 */
+.detail-back {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 24rpx 0 12rpx;
+}
+
+.back-arrow {
+  font-size: 36rpx;
+  color: var(--color-text-primary);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.back-label {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+}
+
+/* 标题区 */
+.detail-hero {
+  padding: 24rpx 0 32rpx;
+}
+
+.detail-title {
+  font-size: 40rpx;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  margin-bottom: 16rpx;
+}
+
+.detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.meta-label {
+  font-size: 22rpx;
+  color: var(--color-green);
+  font-weight: 500;
+}
+
+.meta-dot {
+  font-size: 22rpx;
+  color: var(--color-text-tertiary);
+}
+
+.meta-text {
+  font-size: 22rpx;
+  color: var(--color-text-tertiary);
+}
+
+/* 封面图 */
+.detail-cover {
+  margin: 0 0 40rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.cover-img {
+  width: 100%;
+  height: 420rpx;
+  display: block;
+}
+
+/* 正文 */
+.detail-body {
+  padding-bottom: 40rpx;
+}
+
+.body-text {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  display: block;
+}
+
+.body-rich {
+  font-size: 28rpx;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* 统计数据 */
+.body-stats {
+  margin-top: 32rpx;
+  background: #F5F5F5;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.stat-item + .stat-item {
+  border-top: 2rpx solid var(--color-divider);
+}
+
+.stat-label {
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+}
+
+.stat-value {
+  font-size: 26rpx;
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+/* 底部 */
+.detail-end {
+  padding: 48rpx 0;
+  text-align: center;
+}
+
+.end-divider {
+  height: 2rpx;
+  background: var(--color-divider);
+  margin-bottom: 24rpx;
+}
+
+.end-text {
+  font-size: 22rpx;
+  color: var(--color-text-tertiary);
+  letter-spacing: 4rpx;
+}
+
+/* ==================== 底部留白 ==================== */
+.bottom-spacer {
+  height: 40rpx;
+}

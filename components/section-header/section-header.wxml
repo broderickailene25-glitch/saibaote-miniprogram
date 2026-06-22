@@ -1,0 +1,11 @@
+<!--components/section-header/section-header.wxml - 区块标题-->
+<view class="section-header">
+  <view class="header-left">
+    <text class="header-title">{{title}}</text>
+    <text wx:if="{{subtitle}}" class="header-subtitle">{{subtitle}}</text>
+  </view>
+  <view wx:if="{{showMore}}" class="header-more" bindtap="onMoreTap">
+    <text class="more-text">{{moreText || '查看全部'}}</text>
+    <text class="more-arrow">›</text>
+  </view>
+</view>

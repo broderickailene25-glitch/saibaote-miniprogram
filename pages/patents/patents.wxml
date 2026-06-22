@@ -1,0 +1,72 @@
+<!--pages/patents/patents.wxml - 技术专利展示页-->
+<view class="page-patents">
+
+  <nav-bar title="技术专利" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+
+  <!-- 专利概览 -->
+  <view class="overview-section">
+    <view class="overview-content">
+      <text class="overview-number">14</text>
+      <text class="overview-label">核心专利技术</text>
+      <text class="overview-desc">核心技术自主可控，覆盖有机肥、预混饲料、生物质农药三大领域</text>
+    </view>
+  </view>
+
+  <!-- 专利分类筛选 -->
+  <view class="filter-bar">
+    <scroll-view scroll-x class="filter-scroll" enhanced show-scrollbar="{{false}}">
+      <view class="filter-list">
+        <view class="filter-item {{activeFilter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">
+          <text>全部</text>
+        </view>
+        <view class="filter-item {{activeFilter === 'organic' ? 'active' : ''}}" bindtap="setFilter" data-filter="organic">
+          <text>有机肥</text>
+        </view>
+        <view class="filter-item {{activeFilter === 'feed' ? 'active' : ''}}" bindtap="setFilter" data-filter="feed">
+          <text>预混饲料</text>
+        </view>
+        <view class="filter-item {{activeFilter === 'pesticide' ? 'active' : ''}}" bindtap="setFilter" data-filter="pesticide">
+          <text>生物质农药</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 专利列表 -->
+  <view class="patents-list">
+    <view class="patent-item card" wx:for="{{filteredPatents}}" wx:key="_id" bindtap="toggleDetail" data-id="{{item._id}}">
+      <view class="patent-header">
+        <view class="patent-number-wrap">
+          <text class="patent-number">专利 {{index + 1}}</text>
+        </view>
+        <view class="tag tag-green">{{item.categoryName}}</view>
+      </view>
+      <text class="patent-title">{{item.title}}</text>
+      <text class="patent-summary">{{item.summary}}</text>
+
+      <!-- 详情展开 -->
+      <view class="patent-detail" wx:if="{{expandedId === item._id}}">
+        <view class="divider"></view>
+        <text class="patent-desc">{{item.description}}</text>
+        <view class="patent-techs">
+          <text class="tech-label">技术要点：</text>
+          <view class="tech-list">
+            <view class="tech-item" wx:for="{{item.techPoints}}" wx:key="*this" wx:for-item="tech">
+              <view class="tech-dot"></view>
+              <text class="tech-text">{{tech}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="patent-toggle">
+        <text class="toggle-text">{{expandedId === item._id ? '收起' : '详情'}}</text>
+        <text class="toggle-arrow {{expandedId === item._id ? 'expanded' : ''}}">↓</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部留白 -->
+  <view class="bottom-spacer"></view>
+
+</view>

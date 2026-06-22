@@ -1,0 +1,208 @@
+/* pages/evaluation/evaluation.wxss - 客户评价页（喜茶极简现代风） */
+
+.page-evaluation {
+  min-height: 100vh;
+  background: #FFFFFF;
+}
+
+/* ==================== 概览 ==================== */
+.overview-section {
+  padding: 32rpx 48rpx;
+}
+
+.overview-card {
+  display: flex;
+  gap: 40rpx;
+  padding: 40rpx;
+}
+
+.overview-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 160rpx;
+}
+
+.overview-score {
+  font-size: 72rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  line-height: 1;
+}
+
+.overview-label {
+  font-size: 20rpx;
+  color: #999999;
+  margin-top: 8rpx;
+}
+
+.overview-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  justify-content: center;
+}
+
+.rating-bar {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.rating-stars {
+  font-size: 20rpx;
+  color: #999999;
+  width: 48rpx;
+  flex-shrink: 0;
+}
+
+.rating-progress {
+  flex: 1;
+  height: 8rpx;
+  background: #F0F0F0;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.rating-fill {
+  height: 100%;
+  background: #1A1A1A;
+  border-radius: 4rpx;
+  transition: width 0.3s ease;
+}
+
+.rating-count {
+  font-size: 20rpx;
+  color: #999999;
+  width: 40rpx;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ==================== 筛选栏 ==================== */
+.filter-bar {
+  display: flex;
+  gap: 16rpx;
+  padding: 0 48rpx 24rpx;
+  overflow-x: auto;
+}
+
+.filter-item {
+  display: inline-flex;
+  padding: 12rpx 28rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  color: #666666;
+  background: #FFFFFF;
+  border: 2rpx solid #EEEEEE;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.filter-item.active {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  border-color: #1A1A1A;
+}
+
+/* ==================== 评价列表 ==================== */
+.eval-list {
+  padding: 0 48rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.eval-item {
+  padding: 32rpx;
+}
+
+.eval-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.eval-user {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.eval-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background: #F5F5F5;
+}
+
+.eval-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.eval-username {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.eval-date {
+  font-size: 20rpx;
+  color: #CCCCCC;
+  margin-top: 4rpx;
+}
+
+.eval-rating {
+  display: flex;
+}
+
+.star {
+  font-size: 24rpx;
+  color: #D0D0D0;
+}
+
+.eval-product-tag {
+  margin-bottom: 14rpx;
+}
+
+.eval-content {
+  display: block;
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+}
+
+.eval-images {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+}
+
+.eval-img {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 16rpx;
+}
+
+/* ==================== 空状态 ==================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120rpx 48rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #CCCCCC;
+}
+
+/* ==================== 底部留白 ==================== */
+.bottom-spacer {
+  height: 80rpx;
+}

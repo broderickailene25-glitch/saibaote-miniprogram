@@ -1,0 +1,126 @@
+<!--pages/order/order.wxml - 结算页（喜茶极简风）-->
+<view class="page-order">
+
+  <!-- 自定义导航栏 -->
+  <nav-bar title="确认订单" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+
+  <!-- ==================== 收货地址 ==================== -->
+  <view class="section-card address-card" bindtap="editAddress">
+    <view class="address-filled" wx:if="{{address}}">
+      <view class="address-header">
+        <text class="address-icon">📍</text>
+        <text class="address-name">{{address.name}}</text>
+        <text class="address-phone">{{address.phone}}</text>
+      </view>
+      <text class="address-detail">{{address.province}}{{address.city}}{{address.district}}{{address.detail}}</text>
+      <view class="address-arrow">
+        <text class="arrow-icon">›</text>
+      </view>
+    </view>
+    <view class="address-empty" wx:else>
+      <text class="add-icon">+</text>
+      <text class="add-label">添加收货地址</text>
+      <text class="arrow-icon">›</text>
+    </view>
+  </view>
+
+  <!-- ==================== 商品与金额 ==================== -->
+  <view class="section-card goods-card">
+    <view class="section-title">
+      <text class="section-title-text">商品信息</text>
+    </view>
+
+    <view class="goods-list">
+      <view
+        class="goods-item"
+        wx:for="{{orderItems}}"
+        wx:key="id"
+        wx:for-item="item"
+      >
+        <image class="goods-img" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="goods-info">
+          <text class="goods-name">{{item.name}}</text>
+          <text class="goods-spec">{{item.unit}}</text>
+          <view class="goods-bottom-row">
+            <text class="goods-price">¥{{item.price}}</text>
+            <text class="goods-qty">× {{item.quantity}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 金额汇总 -->
+    <view class="summary">
+      <view class="summary-row">
+        <text class="summary-label">商品合计</text>
+        <text class="summary-value">¥{{subtotalText}}</text>
+      </view>
+      <view class="summary-row">
+        <text class="summary-label">配送</text>
+        <text class="summary-value summary-free">免运费</text>
+      </view>
+      <view class="summary-divider"></view>
+      <view class="summary-row summary-total">
+        <text class="summary-label-total">合计</text>
+        <text class="summary-value-total">¥{{totalText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ==================== 订单备注 ==================== -->
+  <view class="section-card remark-card">
+    <view class="remark-header">
+      <text class="section-title-text">订单备注</text>
+      <text class="remark-count">{{remark.length}}/200</text>
+    </view>
+    <textarea
+      class="remark-input"
+      placeholder="选填：如有特殊需求请在此说明"
+      placeholder-class="remark-placeholder"
+      maxlength="200"
+      value="{{remark}}"
+      bindinput="onRemarkInput"
+    ></textarea>
+  </view>
+
+  <!-- ==================== 支付方式 ==================== -->
+  <view class="section-card payment-card">
+    <view class="section-title">
+      <text class="section-title-text">支付方式</text>
+    </view>
+    <view class="payment-row">
+      <view class="payment-left">
+        <view class="payment-icon-bg">
+          <text class="payment-icon-text">微信</text>
+        </view>
+        <text class="payment-name">微信支付</text>
+      </view>
+      <view class="payment-checked">
+        <text class="check-dot">●</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ==================== 联系客服 ==================== -->
+  <view class="service-row" bindtap="contactService">
+    <text class="service-link">如有疑问，请联系客服</text>
+    <text class="service-arrow">›</text>
+  </view>
+
+  <!-- ==================== 底部提交栏 ==================== -->
+  <view class="bottom-bar">
+    <view class="bottom-bar-inner">
+      <view class="bottom-left">
+        <text class="bottom-label">合计</text>
+        <text class="bottom-price">¥<text class="bottom-price-num">{{totalText}}</text></text>
+      </view>
+      <view class="bottom-btn {{!address ? 'btn-disabled' : ''}}" bindtap="submitOrder">
+        <text>{{!address ? '请填写地址' : '提交订单'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部安全留白 -->
+  <view class="bottom-spacer"></view>
+
+</view>

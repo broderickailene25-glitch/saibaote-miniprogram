@@ -1,0 +1,212 @@
+<!--pages/products/products.wxml - 赛宝特产品页（喜茶式极简点单风）-->
+<view class="page-products">
+
+  <!-- ==================== 顶部深炭灰色导航区 ==================== -->
+  <view class="top-nav">
+    <!-- 状态栏占位（适配 iPhone 刘海/灵动岛） -->
+    <view class="status-bar-placeholder"></view>
+    <view class="nav-row">
+      <view class="nav-left">
+        <view class="store-switch">
+          <text class="switch-item active">配送上门</text>
+        </view>
+        <view class="store-info">
+          <text class="store-name">赛宝特 · 有机生活</text>
+          <text class="store-dist">距您 2.3km</text>
+        </view>
+      </view>
+    </view>
+    <view class="together-banner" bindtap="contactService">
+      <text class="together-sub">企业团购享优惠</text>
+    </view>
+  </view>
+
+  <!-- ==================== 品牌宣传卡片（白底双卡） ==================== -->
+  <view class="brand-section">
+    <view class="brand-cards-area">
+      <view class="brand-card-group">
+        <view class="brand-card-img">
+          <image src="{{brandCardLeftImage}}" mode="aspectFill" class="card-image"></image>
+        </view>
+        <view class="brand-card-text">
+          <text class="card-title">好土壤，养好根</text>
+          <text class="card-subtitle">14项核心专利</text>
+          <text class="card-subtitle">中土环科验证</text>
+        </view>
+      </view>
+      <view class="brand-card-group">
+        <view class="brand-card-img">
+          <image src="{{brandCardRightImage}}" mode="aspectFill" class="card-image"></image>
+        </view>
+        <view class="brand-card-text">
+          <text class="card-title">活化土壤 · 改良板结</text>
+          <text class="card-subtitle">提升肥效</text>
+          <text class="card-subtitle">绿色高效</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ==================== 商品区：左分类右商品 ==================== -->
+  <view class="main-area">
+
+    <!-- 左侧分类导航 -->
+    <scroll-view scroll-y class="category-nav">
+      <view
+        class="cat-item {{activeCategory === item.key ? 'active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="key"
+        bindtap="switchCategory"
+        data-category="{{item.key}}"
+      >
+        <view class="cat-indicator"></view>
+        <text class="cat-text">{{item.name}}</text>
+      </view>
+    </scroll-view>
+
+    <!-- 右侧商品列表 -->
+    <scroll-view scroll-y class="product-list">
+
+      <!-- 分类标题 -->
+      <view class="section-header">
+        <text class="section-title">{{currentCategoryName}}</text>
+        <text class="section-count">{{filteredProducts.length}}</text>
+      </view>
+
+      <!-- 商品卡片 -->
+      <view
+        class="product-card"
+        wx:for="{{filteredProducts}}"
+        wx:key="_id"
+        bindtap="goToDetail"
+        data-id="{{item._id}}"
+      >
+        <!-- 产品图片（白底） -->
+        <view class="product-img-wrap">
+          <image lazy-load src="{{item.images[0]}}" mode="aspectFill" class="product-img"></image>
+        </view>
+
+        <!-- 产品信息 -->
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+
+          <!-- 标签 -->
+          <view class="product-tags">
+            <text class="tag" wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">{{tag}}</text>
+          </view>
+
+          <!-- 卖点 -->
+          <text class="product-subtitle">{{item.subtitle}}</text>
+
+          <!-- 底部：规格 + 价格/操作 -->
+          <view class="product-bottom">
+            <text class="product-spec">{{item.unit}}</text>
+            <view class="price-action">
+              <text class="price" wx:if="{{item.price > 0}}">¥{{item.price}}</text>
+              <text class="price contact" wx:else>咨询报价</text>
+              <view class="btn-add {{animatedProductId === item._id ? 'animate' : ''}}" catchtap="addToCart" data-id="{{item._id}}" data-name="{{item.name}}" data-price="{{item.price}}" data-image="{{item.images[0]}}" data-unit="{{item.unit}}">
+                <text class="btn-add-text">+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 空状态 -->
+      <view class="empty-state" wx:if="{{filteredProducts.length === 0}}">
+        <text class="empty-text">暂无该分类产品</text>
+      </view>
+
+      <!-- 底部留白（含购物车栏安全间距） -->
+      <view class="bottom-spacer"></view>
+    </scroll-view>
+
+  </view>
+
+  <!-- ==================== 购物车栏（悬浮胶囊） ==================== -->
+  <view class="cart-bar" catchtap="goToCartPage">
+    <view class="cart-bar-inner">
+      <view class="cart-left">
+        <view class="cart-icon-wrap">
+          <text class="cart-emoji">🛒</text>
+          <view class="cart-badge" wx:if="{{cartTotalCount > 0}}">{{cartTotalCount}}</view>
+        </view>
+        <text class="cart-label">
+          <text wx:if="{{cartTotalCount > 0}}">已选 {{cartTotalCount}} 件</text>
+          <text wx:else>购物车空空的</text>
+        </text>
+      </view>
+      <view class="cart-right">
+        <text class="cart-total" wx:if="{{cartTotalCount > 0}}">合计 ¥<text class="cart-price-text">{{cartTotalPriceText}}</text></text>
+        <view class="cart-btn {{cartTotalCount > 0 ? '' : 'disabled'}}" catchtap="handleCartBtn">
+          <text>{{cartTotalCount > 0 ? '去结算' : '去选购'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ==================== 购物车详情浮层（底部弹出） ==================== -->
+  <view class="sheet-overlay {{showCartSheet ? 'show' : ''}}" catchtap="closeCartSheet"></view>
+  <view class="cart-sheet {{showCartSheet ? 'show' : ''}}">
+    <view class="sheet-inner" catchtap="noop">
+      <!-- 标题栏 -->
+      <view class="sheet-header">
+        <view class="sheet-title-wrap">
+          <text class="sheet-title">🛒 购物车</text>
+          <text class="sheet-count" wx:if="{{cartTotalCount > 0}}">({{cartTotalCount}})</text>
+        </view>
+        <view class="sheet-close" catchtap="closeCartSheet">
+          <text class="sheet-close-icon">✕</text>
+        </view>
+      </view>
+
+      <!-- 商品列表 -->
+      <scroll-view scroll-y class="sheet-list">
+        <view
+          class="sheet-item"
+          wx:for="{{cartItems}}"
+          wx:key="id"
+        >
+          <image class="sheet-item-img" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="sheet-item-info">
+            <text class="sheet-item-name">{{item.name}}</text>
+            <text class="sheet-item-spec">{{item.unit}}</text>
+          </view>
+          <view class="sheet-item-qty">
+            <text class="sheet-item-price">¥{{item.price}}</text>
+            <view class="qty-controls">
+              <view class="qty-btn" catchtap="decreaseCartItem" data-id="{{item.id}}">
+                <text class="qty-btn-text">−</text>
+              </view>
+              <text class="qty-num">{{item.quantity}}</text>
+              <view class="qty-btn" catchtap="increaseCartItem" data-id="{{item.id}}">
+                <text class="qty-btn-text">+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 空状态 -->
+        <view class="sheet-empty" wx:if="{{cartItems.length === 0}}">
+          <text class="sheet-empty-text">购物车空空的</text>
+          <text class="sheet-empty-sub">点击商品右侧 + 号添加</text>
+        </view>
+      </scroll-view>
+
+      <!-- 底栏 -->
+      <view class="sheet-footer" wx:if="{{cartTotalCount > 0}}">
+        <view class="sheet-footer-left">
+          <text class="sheet-footer-label">合计</text>
+          <text class="sheet-footer-price">¥<text class="sheet-footer-num">{{cartTotalPriceText}}</text></text>
+        </view>
+        <view class="sheet-footer-btn" catchtap="handleCartBtn">
+          <text>去结算</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 自定义TabBar -->
+  <custom-tabbar selected="{{1}}" list="{{tabList}}"></custom-tabbar>
+
+</view>

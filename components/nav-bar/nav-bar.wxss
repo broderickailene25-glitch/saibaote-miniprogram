@@ -1,0 +1,88 @@
+/* components/nav-bar/nav-bar.wxss */
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #FFFFFF;
+  border-bottom: 1rpx solid #F0F0F0;
+}
+
+.nav-bar-transparent {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+}
+
+/* 强制深色模式：透明背景 + 深色文字/图标 */
+.nav-bar-dark.nav-bar-transparent {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-bar-dark .back-arrow {
+  color: #1A1A1A;
+}
+
+.nav-bar-dark .title-text {
+  color: #1A1A1A;
+}
+
+.nav-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx;
+}
+
+.nav-bar-left {
+  display: flex;
+  align-items: center;
+  min-width: 120rpx;
+}
+
+.nav-back {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.back-arrow {
+  font-size: 48rpx;
+  color: var(--text-primary);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.back-text {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  margin-left: 8rpx;
+}
+
+.nav-bar-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title-text {
+  font-size: var(--font-md);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.nav-bar-right {
+  display: flex;
+  align-items: center;
+  min-width: 120rpx;
+  justify-content: flex-end;
+}
+
+.nav-bar-placeholder {
+  width: 100%;
+}

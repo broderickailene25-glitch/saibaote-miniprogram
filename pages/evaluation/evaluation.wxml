@@ -1,0 +1,74 @@
+<!--pages/evaluation/evaluation.wxml - 客户评价页-->
+<view class="page-evaluation">
+
+  <nav-bar title="客户评价" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+
+  <!-- 评价概览 -->
+  <view class="overview-section">
+    <view class="overview-card card">
+      <view class="overview-left">
+        <text class="overview-score">4.8</text>
+        <text class="overview-label">综合评分</text>
+      </view>
+      <view class="overview-right">
+        <view class="rating-bar" wx:for="{{ratingBars}}" wx:key="stars">
+          <text class="rating-stars">{{item.stars}}星</text>
+          <view class="rating-progress">
+            <view class="rating-fill" style="width: {{item.percent}}%"></view>
+          </view>
+          <text class="rating-count">{{item.count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评价筛选 -->
+  <view class="filter-bar">
+    <view class="filter-item {{activeFilter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">
+      <text>全部</text>
+    </view>
+    <view class="filter-item {{activeFilter === 'product_001' ? 'active' : ''}}" bindtap="setFilter" data-filter="product_001">
+      <text>有机肥</text>
+    </view>
+    <view class="filter-item {{activeFilter === 'product_002' ? 'active' : ''}}" bindtap="setFilter" data-filter="product_002">
+      <text>预混饲料</text>
+    </view>
+    <view class="filter-item {{activeFilter === 'product_003' ? 'active' : ''}}" bindtap="setFilter" data-filter="product_003">
+      <text>生物质农药</text>
+    </view>
+  </view>
+
+  <!-- 评价列表 -->
+  <view class="eval-list">
+    <view class="eval-item card" wx:for="{{filteredEvals}}" wx:key="_id">
+      <view class="eval-header">
+        <view class="eval-user">
+          <image lazy-load src="{{item.userAvatar}}" mode="aspectFill" class="eval-avatar"></image>
+          <view class="eval-user-info">
+            <text class="eval-username">{{item.userName}}</text>
+            <text class="eval-date">{{item.createTime}}</text>
+          </view>
+        </view>
+        <view class="eval-rating">
+          <text class="star" wx:for="{{5}}" wx:key="*this" wx:for-item="star">★</text>
+        </view>
+      </view>
+      <view class="eval-product-tag">
+        <view class="tag tag-green">{{item.productName}}</view>
+      </view>
+      <text class="eval-content">{{item.content}}</text>
+      <view class="eval-images" wx:if="{{item.images.length > 0}}">
+        <image lazy-load wx:for="{{item.images}}" wx:key="*this" wx:for-item="img" src="{{img}}" mode="aspectFill" class="eval-img"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{filteredEvals.length === 0}}">
+    <text class="empty-text">暂无该产品评价</text>
+  </view>
+
+  <!-- 底部留白 -->
+  <view class="bottom-spacer"></view>
+
+</view>

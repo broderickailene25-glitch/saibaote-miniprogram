@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "nav-bar": "/components/nav-bar/nav-bar"
+  },
+  "navigationBarTitleText": "产品详情",
+  "backgroundColor": "#FFFFFF",
+  "backgroundTextStyle": "dark"
+}

@@ -1,0 +1,150 @@
+/* pages/cases/cases.wxss - 项目案例页样式（喜茶极简风） */
+
+.page-cases {
+  min-height: 100vh;
+  background: #F5F5F5;
+}
+
+.cases-list {
+  padding: 32rpx 48rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 48rpx;
+}
+
+/* ==================== 案例卡片 ==================== */
+.case-item {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+}
+
+/* ==================== 案例封面 ==================== */
+.case-cover {
+  position: relative;
+  height: 400rpx;
+  overflow: hidden;
+}
+
+.cover-img {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== 案例信息 ==================== */
+.case-info {
+  padding: 32rpx;
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.case-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.case-location {
+  font-size: 24rpx;
+  color: #999999;
+  padding: 6rpx 16rpx;
+  background: #F5F5F5;
+  border-radius: 16rpx;
+}
+
+.case-subtitle {
+  display: block;
+  font-size: 26rpx;
+  color: #4A7C59;
+  font-weight: 500;
+  margin-bottom: 16rpx;
+}
+
+.case-desc {
+  display: block;
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.8;
+}
+
+/* ==================== 数据展示 ==================== */
+.case-stats {
+  display: flex;
+  gap: 32rpx;
+  margin-top: 24rpx;
+  padding-top: 24rpx;
+  border-top: 1rpx solid #F5F5F5;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: #999999;
+  margin-top: 4rpx;
+}
+
+/* ==================== 详情展开 ==================== */
+.case-detail {
+  margin-top: 24rpx;
+  padding-top: 24rpx;
+  border-top: 1rpx solid #F5F5F5;
+}
+
+.detail-images {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.detail-img {
+  width: 100%;
+  height: 360rpx;
+  border-radius: 16rpx;
+}
+
+/* ==================== 展开/收起 ==================== */
+.case-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  margin-top: 24rpx;
+  padding-top: 24rpx;
+  border-top: 1rpx solid #F5F5F5;
+}
+
+.toggle-text {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.toggle-arrow {
+  font-size: 26rpx;
+  color: #999999;
+  transition: transform 0.3s ease;
+}
+
+.toggle-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+/* ==================== 底部留白 ==================== */
+.bottom-spacer {
+  height: 80rpx;
+}

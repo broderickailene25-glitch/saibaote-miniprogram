@@ -1,0 +1,153 @@
+/* pages/index/index.wxss - 赛宝特首页（全屏品牌展示） */
+
+page {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.page-index {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ==================== 全屏背景（轮播交叉渐隐） ==================== */
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #F5F0EB;
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 160rpx;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 0;
+}
+
+.bg-img.visible {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* ==================== 主内容 ==================== */
+.main-content {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 48rpx;
+  padding-bottom: 220rpx;
+  overflow: hidden;
+}
+
+.top-spacer {
+  flex: 1;
+}
+
+/* ==================== 底部信息 ==================== */
+.bottom-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48rpx;
+  padding-bottom: 240rpx;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 40rpx;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.info-num {
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #CCCCCC;
+  font-feature-settings: 'tnum';
+  text-shadow: 0 1rpx 2rpx rgba(0,0,0,0.08);
+}
+
+.info-label {
+  font-size: 18rpx;
+  font-weight: 300;
+  color: #CCCCCC;
+  letter-spacing: 2rpx;
+  text-shadow: 0 1rpx 2rpx rgba(0,0,0,0.06);
+}
+
+.info-divider {
+  width: 1rpx;
+  height: 48rpx;
+  background: #E0E0E0;
+}
+
+/* ==================== 轮播指示器（底部圆点） ==================== */
+.indicator-dots {
+  position: fixed;
+  bottom: calc(280rpx + env(safe-area-inset-bottom));
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12rpx;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  transition: all 0.4s ease;
+}
+
+.dot.active {
+  width: 22rpx;
+  border-radius: 5rpx;
+  background: rgba(255,255,255,0.7);
+}
+
+/* 进入按钮 */
+.enter-btn {
+  padding: 20rpx 64rpx;
+  border: 1rpx solid #CCCCCC;
+  border-radius: 999rpx;
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.enter-btn:active {
+  background: #F5F5F5;
+  transform: scale(0.98);
+}
+
+.enter-text {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #1A1A1A;
+  letter-spacing: 8rpx;
+  text-indent: 8rpx;
+}

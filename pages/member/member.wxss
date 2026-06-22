@@ -1,0 +1,187 @@
+/* pages/member/member.wxss - 会员中心（喜茶极简风） */
+
+.page-member {
+  min-height: 100vh;
+  background: #FFFFFF;
+}
+
+/* ==================== 会员卡 ==================== */
+.member-card {
+  margin: 48rpx 48rpx 64rpx;
+  padding: 48rpx 40rpx;
+  background: #F8F8F8;
+  border-radius: 24rpx;
+}
+
+.card-level-row {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  margin-bottom: 24rpx;
+}
+
+.card-level {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.card-level-tag {
+  font-size: 16rpx;
+  color: #999999;
+}
+
+.card-points-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8rpx;
+  margin-bottom: 16rpx;
+}
+
+.card-points-num {
+  font-size: 64rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  line-height: 1;
+}
+
+.card-points-label {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.card-next-row {
+  margin-bottom: 24rpx;
+}
+
+.card-next-text {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.card-progress {
+  width: 100%;
+  height: 6rpx;
+  background: #E8E8E8;
+  border-radius: 3rpx;
+  overflow: hidden;
+}
+
+.card-progress-fill {
+  height: 100%;
+  background: #1A1A1A;
+  border-radius: 3rpx;
+  transition: width 0.5s ease;
+}
+
+/* ==================== Section ==================== */
+.section {
+  padding: 0 48rpx;
+  margin-bottom: 56rpx;
+}
+
+.section-title {
+  margin-bottom: 32rpx;
+}
+
+.title-text {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+/* ==================== 等级体系 ==================== */
+.levels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.level-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 0;
+  border-bottom: 2rpx solid #F5F5F5;
+}
+
+.level-item:last-child {
+  border-bottom: none;
+}
+
+.level-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.level-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.level-desc {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.level-points {
+  flex-shrink: 0;
+}
+
+.level-points-text {
+  font-size: 22rpx;
+  color: #CCCCCC;
+}
+
+/* ==================== 权益列表 ==================== */
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20rpx;
+  padding: 28rpx 0;
+  border-bottom: 2rpx solid #F5F5F5;
+}
+
+.benefit-item:last-child {
+  border-bottom: none;
+}
+
+.benefit-dot {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #CCCCCC;
+  margin-top: 12rpx;
+  flex-shrink: 0;
+}
+
+.benefit-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.benefit-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.benefit-desc {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+/* ==================== 底部留白 ==================== */
+.bottom-spacer {
+  height: 80rpx;
+}

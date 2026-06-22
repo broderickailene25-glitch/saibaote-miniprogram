@@ -1,0 +1,103 @@
+<!--pages/about/about.wxml - 公司介绍页-->
+<view class="page-about">
+
+  <nav-bar title="关于我们" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+
+  <!-- 品牌 Hero -->
+  <view class="hero-section">
+    <view class="hero-content">
+      <image lazy-load src="/logo.jpg" mode="aspectFit" class="hero-logo"></image>
+      <text class="hero-name">赛宝特</text>
+      <text class="hero-slogan">全农业产业链科技企业</text>
+    </view>
+  </view>
+
+  <!-- 公司简介 -->
+  <view class="section intro-section">
+    <view class="section-title">
+      <text class="title-text">公司简介</text>
+    </view>
+    <view class="intro-card card">
+      <text class="intro-text">深圳赛宝特生物环保科技有限公司是一家立足于粤港澳大湾区的全农业产业链科技企业，母公司旗下两家子公司，握有14项核心专利，覆盖有机肥料、预混饲料、生物农药。</text>
+      <text class="intro-text">公司以"科技兴农、绿色发展"为使命，致力于通过技术创新推动农业可持续发展，为农户提供高品质的农业生产资料和全方位的技术服务。</text>
+    </view>
+  </view>
+
+  <!-- 集团架构 -->
+  <view class="section structure-section">
+    <view class="section-title">
+      <text class="title-text">集团架构</text>
+    </view>
+    <view class="structure-tree">
+      <!-- 母公司 -->
+      <view class="node parent-node card">
+        <view class="node-badge">母公司</view>
+        <text class="node-name">深圳赛宝特生物环保科技有限公司</text>
+        <text class="node-role">深圳创立 · 战略主体</text>
+      </view>
+      <view class="tree-line"></view>
+      <!-- 子公司 -->
+      <view class="subsidiaries">
+        <view class="node child-node card">
+          <view class="node-badge green">子公司</view>
+          <text class="node-name">深圳赛宝嘉科技有限公司</text>
+          <text class="node-role">技术/生产 · 14项专利</text>
+        </view>
+        <view class="node child-node card">
+          <view class="node-badge green">子公司</view>
+          <text class="node-name">广东福聚多生态农业有限公司</text>
+          <text class="node-role">基地/品牌/运营 · 老区甄选</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 核心优势 -->
+  <view class="section advantages-section">
+    <view class="section-title">
+      <text class="title-text">核心优势</text>
+    </view>
+    <view class="advantages-grid">
+      <view class="advantage-item" wx:for="{{advantages}}" wx:key="title">
+        <view class="advantage-icon-wrap">
+          <text class="advantage-icon">{{item.icon}}</text>
+        </view>
+        <text class="advantage-title">{{item.title}}</text>
+        <text class="advantage-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 三大产品线 -->
+  <view class="section products-section">
+    <view class="section-title">
+      <text class="title-text">三大产品线</text>
+    </view>
+    <view class="product-list">
+      <view class="product-item card" wx:for="{{products}}" wx:key="name" bindtap="goToProducts">
+        <view class="product-header">
+          <text class="product-name">{{item.name}}</text>
+          <view class="tag tag-green">{{item.highlight}}</view>
+        </view>
+        <text class="product-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 企业资质 -->
+  <view class="section qualification-section">
+    <view class="section-title">
+      <text class="title-text">企业资质</text>
+    </view>
+    <view class="qual-list">
+      <view class="qual-item" wx:for="{{qualifications}}" wx:key="*this">
+        <view class="qual-dot"></view>
+        <text class="qual-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部留白 -->
+  <view class="bottom-spacer"></view>
+
+</view>

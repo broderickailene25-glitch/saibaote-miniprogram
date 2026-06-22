@@ -1,0 +1,53 @@
+<!--pages/news-list/news-list.wxml - 往期文章列表（栏目分类）-->
+<view class="page-news-list">
+
+  <nav-bar title="往期文章" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+
+  <!-- 栏目筛选 -->
+  <view class="columns-wrap">
+    <view class="columns-list">
+      <view
+        class="column-item {{activeColumn === item.key ? 'active' : ''}}"
+        wx:for="{{columns}}"
+        wx:key="key"
+        bindtap="switchColumn"
+        data-key="{{item.key}}"
+      >
+        <text class="column-text">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 文章列表 -->
+  <view class="article-list">
+    <view
+      class="article-item"
+      wx:for="{{filteredArticles}}"
+      wx:key="_id"
+      bindtap="openArticle"
+      data-id="{{item._id}}"
+    >
+      <view class="article-img-wrap">
+        <image lazy-load src="{{item.cover}}" mode="aspectFill" class="article-img"></image>
+      </view>
+      <view class="article-info">
+        <text class="article-title">{{item.title}}</text>
+        <view class="article-meta">
+          <text class="article-column">{{item.column}}</text>
+          <text class="article-dot">·</text>
+          <text class="article-time">{{item.createTime}}</text>
+        </view>
+      </view>
+      <text class="article-arrow">→</text>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{filteredArticles.length === 0}}">
+    <text class="empty-text">暂无该栏目文章</text>
+  </view>
+
+  <!-- 自定义TabBar -->
+  <custom-tabbar selected="{{2}}" list="{{tabList}}"></custom-tabbar>
+
+</view>

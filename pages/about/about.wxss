@@ -1,0 +1,252 @@
+/* pages/about/about.wxss - 关于我们页（喜茶极简现代风） */
+
+.page-about {
+  min-height: 100vh;
+  background: #FFFFFF;
+}
+
+/* ==================== Hero ==================== */
+.hero-section {
+  padding: 100rpx 64rpx 60rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 32rpx;
+}
+
+.hero-name {
+  font-size: 48rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 16rpx;
+  letter-spacing: 8rpx;
+}
+
+.hero-slogan {
+  font-size: 24rpx;
+  color: #999999;
+  letter-spacing: 4rpx;
+}
+
+/* ==================== Section ==================== */
+.section {
+  padding: 0 48rpx;
+  margin-bottom: 64rpx;
+}
+
+.section-title {
+  margin-bottom: 28rpx;
+}
+
+.title-text {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.title-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4rpx;
+  height: 28rpx;
+  background: #D0D0D0;
+  border-radius: 2rpx;
+}
+
+/* ==================== 公司简介 ==================== */
+.intro-card {
+  padding: 36rpx 40rpx;
+}
+
+.intro-text {
+  display: block;
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 2;
+  margin-bottom: 24rpx;
+}
+
+.intro-text:last-child {
+  margin-bottom: 0;
+}
+
+/* ==================== 集团架构 ==================== */
+.structure-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node {
+  width: 100%;
+  text-align: center;
+  padding: 28rpx;
+}
+
+.node-badge {
+  display: inline-block;
+  padding: 6rpx 20rpx;
+  background: #E8E8E8;
+  color: #666666;
+  font-size: 20rpx;
+  border-radius: 999rpx;
+  margin-bottom: 16rpx;
+}
+
+.node-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 8rpx;
+}
+
+.node-role {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.tree-line {
+  width: 2rpx;
+  height: 40rpx;
+  background: #E8E8E8;
+  margin: 0;
+}
+
+.subsidiaries {
+  display: flex;
+  gap: 24rpx;
+  width: 100%;
+}
+
+.child-node {
+  flex: 1;
+}
+
+/* ==================== 核心优势 ==================== */
+.advantages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+}
+
+.advantage-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 20rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.advantage-icon-wrap {
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F8F8F8;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.advantage-icon {
+  font-size: 36rpx;
+}
+
+.advantage-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 6rpx;
+}
+
+.advantage-desc {
+  font-size: 22rpx;
+  color: #999999;
+  line-height: 1.5;
+}
+
+/* ==================== 产品线 ==================== */
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.product-item {
+  padding: 32rpx;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14rpx;
+}
+
+.product-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+}
+
+.product-desc {
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* ==================== 企业资质 ==================== */
+.qual-list {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 28rpx 36rpx;
+  box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.04);
+}
+
+.qual-item {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 20rpx 0;
+}
+
+.qual-item + .qual-item {
+  border-top: 1rpx solid #EEEEEE;
+}
+
+.qual-dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #CCCCCC;
+  flex-shrink: 0;
+}
+
+.qual-text {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+/* ==================== 底部留白 ==================== */
+.bottom-spacer {
+  height: 80rpx;
+}

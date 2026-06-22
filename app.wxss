@@ -1,0 +1,663 @@
+/* app.wxss - 赛宝特全局样式 */
+
+/* ==================== 赛宝特绿色系统 ==================== */
+page {
+  /* 品牌绿 - 仅用于按钮、价格、选中态 */
+  --green-deep: #2D5F3C;
+  --green-mid: #4A7C59;
+  --green-bamboo: #6B8F71;
+  --green-light: #A8D5BA;
+  --green-mint: #E8F5EC;
+  --green-snow: #F5FAF7;
+  --green-mist: #F8F8F8;
+
+  /* 主色映射 */
+  --primary: #4A7C59;
+  --primary-light: #6B8F71;
+  --primary-dark: #2D5F3C;
+  --primary-bg: #F0F7F2;
+
+  /* 白色系（纯白为主） */
+  --white-pure: #FFFFFF;
+  --white-snow: #FAFAFA;
+  --white-ivory: #F5F5F5;
+  --white-cream: #EEEEEE;
+  --white-warm: #E8E8E8;
+
+  /* 辅助色 */
+  --ink: #1A1A1A;
+  --ink-light: #333333;
+  --ink-lighter: #666666;
+  --ink-muted: #999999;
+  --paper: #F5F5F5;
+  --red: #E53935;
+  --red-light: #FFEBEE;
+
+  /* 中性色 */
+  --bg: #FFFFFF;
+  --bg-white: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --border: #EEEEEE;
+  --border-light: #F5F5F5;
+
+  /* 文字（黑白灰） */
+  --text-primary: #1A1A1A;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --text-placeholder: #CCCCCC;
+
+  /* 间距 - 增加留白 */
+  --spacing-xs: 12rpx;
+  --spacing-sm: 20rpx;
+  --spacing-md: 32rpx;
+  --spacing-lg: 48rpx;
+  --spacing-xl: 64rpx;
+  --spacing-xxl: 96rpx;
+
+  /* 圆角 */
+  --radius-sm: 8rpx;
+  --radius-md: 16rpx;
+  --radius-lg: 24rpx;
+  --radius-xl: 32rpx;
+  --radius-round: 999rpx;
+
+  /* 阴影 - 极轻 */
+  --shadow-sm: 0 1rpx 2rpx rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 1rpx 4rpx rgba(0, 0, 0, 0.03);
+
+  /* 字体大小 */
+  --font-xs: 20rpx;
+  --font-sm: 24rpx;
+  --font-md: 28rpx;
+  --font-lg: 32rpx;
+  --font-xl: 36rpx;
+  --font-xxl: 44rpx;
+  --font-title: 52rpx;
+
+  /* 页面背景 */
+  background-color: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: var(--font-md);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* ==================== 基础样式 ==================== */
+.container {
+  padding: var(--spacing-lg);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 文字样式 */
+.text-primary { color: var(--primary); }
+.text-ink { color: var(--ink); }
+.text-light { color: var(--ink-light); }
+.text-placeholder { color: var(--ink-lighter); }
+.text-red { color: var(--red); }
+
+.text-xs { font-size: var(--font-xs); }
+.text-sm { font-size: var(--font-sm); }
+.text-md { font-size: var(--font-md); }
+.text-lg { font-size: var(--font-lg); }
+.text-xl { font-size: var(--font-xl); }
+.text-xxl { font-size: var(--font-xxl); }
+.text-title { font-size: var(--font-title); }
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-bold { font-weight: 600; }
+
+/* ==================== 按钮样式 ==================== */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 40rpx;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-md);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.btn::after {
+  border: none;
+}
+
+.btn-primary {
+  background: var(--green-mid);
+  color: #FFFFFF;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  background: var(--green-deep);
+}
+
+.btn-green {
+  background: var(--green-mid);
+  color: #FFFFFF;
+}
+
+.btn-green:active {
+  transform: scale(0.98);
+  background: var(--green-deep);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2rpx solid var(--border);
+}
+
+.btn-outline:active {
+  background: var(--bg);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:active {
+  background: var(--bg);
+}
+
+.btn-white {
+  background: var(--white-pure);
+  color: var(--text-primary);
+  border: 1rpx solid var(--border);
+}
+
+.btn-white:active {
+  background: var(--bg);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-sm {
+  padding: 12rpx 24rpx;
+  font-size: var(--font-sm);
+}
+
+.btn-lg {
+  padding: 28rpx 56rpx;
+  font-size: var(--font-lg);
+}
+
+/* ==================== 卡片样式 ==================== */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.card:active {
+  transform: scale(0.99);
+  box-shadow: var(--shadow-md);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.card-title {
+  font-size: var(--font-lg);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.card-subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+/* ==================== 分割线 ==================== */
+.divider {
+  height: 1rpx;
+  background: var(--border-light);
+  margin: var(--spacing-md) 0;
+}
+
+/* ==================== 徽章/标签 ==================== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8rpx 20rpx;
+  border-radius: var(--radius-round);
+  font-size: var(--font-xs);
+  background: var(--white-ivory);
+  color: var(--text-secondary);
+}
+
+.tag-green {
+  background: #EEEEEE;
+  color: #666666;
+  border-color: transparent;
+}
+
+.tag-red {
+  background: var(--red-light);
+  color: var(--red);
+  border-color: transparent;
+}
+
+.tag-dark {
+  background: var(--ink);
+  color: #FFFFFF;
+}
+
+/* ==================== 头像 ==================== */
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--white-ivory);
+}
+
+.avatar image {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== Flex 布局 ==================== */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-end { justify-content: flex-end; }
+
+/* ==================== 间距 - 增加留白 ==================== */
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+.mt-xxl { margin-top: var(--spacing-xxl); }
+
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+.mb-xxl { margin-bottom: var(--spacing-xxl); }
+
+.ml-xs { margin-left: var(--spacing-xs); }
+.ml-sm { margin-left: var(--spacing-sm); }
+.ml-md { margin-left: var(--spacing-md); }
+.ml-lg { margin-left: var(--spacing-lg); }
+
+.mr-xs { margin-right: var(--spacing-xs); }
+.mr-sm { margin-right: var(--spacing-sm); }
+.mr-md { margin-right: var(--spacing-md); }
+.mr-lg { margin-right: var(--spacing-lg); }
+
+.pt-xs { padding-top: var(--spacing-xs); }
+.pt-sm { padding-top: var(--spacing-sm); }
+.pt-md { padding-top: var(--spacing-md); }
+.pt-lg { padding-top: var(--spacing-lg); }
+.pt-xl { padding-top: var(--spacing-xl); }
+
+.pb-xs { padding-bottom: var(--spacing-xs); }
+.pb-sm { padding-bottom: var(--spacing-sm); }
+.pb-md { padding-bottom: var(--spacing-md); }
+.pb-lg { padding-bottom: var(--spacing-lg); }
+.pb-xl { padding-bottom: var(--spacing-xl); }
+
+.px-sm { padding-left: var(--spacing-sm); padding-right: var(--spacing-sm); }
+.px-md { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.px-lg { padding-left: var(--spacing-lg); padding-right: var(--spacing-lg); }
+.px-xl { padding-left: var(--spacing-xl); padding-right: var(--spacing-xl); }
+
+.py-sm { padding-top: var(--spacing-sm); padding-bottom: var(--spacing-sm); }
+.py-md { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+.py-lg { padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg); }
+.py-xl { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
+.py-xxl { padding-top: var(--spacing-xxl); padding-bottom: var(--spacing-xxl); }
+
+/* ==================== 高级白色背景 ==================== */
+.bg-snow {
+  background-color: var(--white-snow);
+}
+
+.bg-ivory {
+  background-color: var(--white-ivory);
+}
+
+.bg-cream {
+  background-color: var(--white-cream);
+}
+
+.bg-warm {
+  background-color: var(--white-warm);
+}
+
+/* ==================== 宣纸纹理背景 ==================== */
+.paper-bg {
+  background-color: var(--white-ivory);
+}
+
+/* ==================== 动画 ==================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+/* ==================== 隐藏滚动条 ==================== */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/* ==================== 高级动效系统 ==================== */
+
+/* --- 列表项渐入（stagger） --- */
+@keyframes staggerIn {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-stagger {
+  opacity: 0;
+  animation: staggerIn 0.5s ease-out forwards;
+}
+
+/* --- 按钮微交互 --- */
+.btn {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+  box-shadow: 0 1rpx 4rpx rgba(0, 0, 0, 0.08);
+}
+
+/* --- 卡片微交互 --- */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:active {
+  transform: scale(0.985);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- 页面切换动画 --- */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.35s ease-out;
+}
+
+/* --- 页面过渡 --- */
+.ink-transition {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* --- 弹性出现 --- */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.anim-bounce-in {
+  animation: bounceIn 0.5s ease-out;
+}
+
+/* --- 滑入动画变体 --- */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.anim-slide-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.anim-slide-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+/* --- 脉冲提示 --- */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.anim-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* --- 数字滚动闪烁 --- */
+@keyframes numberFlash {
+  0% { color: var(--green-mid); }
+  100% { color: var(--text-primary); }
+}
+
+.anim-number {
+  animation: numberFlash 0.8s ease-out;
+}
+
+/* --- 标签栏切换 --- */
+.tab-item {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tab-item::after {
+  content: '';
+  position: absolute;
+  bottom: -4rpx;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 40rpx;
+  height: 4rpx;
+  background: var(--primary);
+  border-radius: 2rpx;
+  transition: transform 0.3s ease;
+}
+
+.tab-item.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* --- 加载骨架屏 --- */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg) 25%,
+    var(--border-light) 50%,
+    var(--bg) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-text {
+  height: 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.skeleton-text.short {
+  width: 60%;
+}
+
+.skeleton-img {
+  height: 300rpx;
+}
+
+/* --- Toast 弹出 --- */
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(-40rpx) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-enter {
+  animation: toastIn 0.3s ease-out;
+}
+
+/* --- 涟漪效果（点击反馈） --- */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.ripple:active::after {
+  width: 300%;
+  height: 300%;
+  opacity: 1;
+  transition: width 0s, height 0s, opacity 0s;
+}
+
+/* --- 浮入视口（配合 IntersectionObserver） --- */
+.observe-target {
+  opacity: 0;
+  transform: translateY(40rpx);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.observe-target.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================== 水墨装饰全局样式 ==================== */
+/* 已移除水墨浮动画效，改为极简风格 */
+
+/* ==================== TabBar 样式（喜茶极简风） ==================== */
+/* 微信小程序TabBar是系统组件，通过page-level样式微调 */
+
+page {
+  /* TabBar相关变量 */
+  --tabbar-bg: #FFFFFF;
+  --tabbar-color: #B0B0B0;
+  --tabbar-active-color: #1A1A1A;
+  --tabbar-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+/* TabBar顶部阴影效果 */
+.tab-bar-wrapper {
+  box-shadow: var(--tabbar-shadow);
+}

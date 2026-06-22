@@ -1,0 +1,204 @@
+/* pages/news/news.wxss - 资讯页（文章卡片 + 全屏详情·喜茶极简风） */
+
+page {
+  overflow: hidden;
+  height: 100vh;
+}
+
+.page-consult {
+  height: 100vh;
+  background: #FFFFFF;
+  overflow-y: auto;
+}
+
+.page-consult.cover-mode {
+  overflow: hidden;
+  height: 100vh;
+  padding-bottom: 0;
+}
+
+/* ==================== 全屏封面 ==================== */
+.fullscreen-cover {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.cover-bg {
+  position: absolute;
+  top: -160rpx;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 80rpx);
+}
+
+/* ==================== 玻璃质感按钮 ==================== */
+.glass-btns {
+  position: absolute;
+  bottom: calc(140rpx + env(safe-area-inset-bottom));
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 28rpx;
+  padding: 0 48rpx;
+  pointer-events: none;
+}
+
+.glass-btn {
+  pointer-events: auto;
+  padding: 22rpx 48rpx;
+  border-radius: 50rpx;
+  background: rgba(255,255,255,0.06);
+  border: 1rpx solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+}
+
+.glass-btn-primary {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.glass-text {
+  font-size: 28rpx;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  letter-spacing: 5rpx;
+}
+
+.glass-arrow {
+  font-size: 26rpx;
+  color: rgba(255,255,255,0.6);
+  line-height: 1;
+}
+
+.page-consult.cover-mode {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ==================== 文章详情（全屏） ==================== */
+.detail-scroll {
+  height: calc(100vh - 100rpx - env(safe-area-inset-bottom));
+}
+
+.detail-back {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 24rpx 36rpx 8rpx;
+}
+
+.back-arrow {
+  font-size: 36rpx;
+  color: #1A1A1A;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.back-label {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.detail-cover {
+  width: 100%;
+}
+
+.cover-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.detail-hero {
+  padding: 48rpx 48rpx 32rpx;
+}
+
+.detail-title {
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  line-height: 1.4;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.meta-label {
+  font-size: 22rpx;
+  color: #666666;
+  font-weight: 500;
+}
+
+.meta-dot {
+  font-size: 22rpx;
+  color: #CCCCCC;
+}
+
+.meta-text {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.detail-body {
+  padding: 0 48rpx 40rpx;
+}
+
+.body-rich {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+}
+
+.body-rich h2 {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 40rpx 0 20rpx;
+}
+
+.body-rich h3 {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 28rpx 0 14rpx;
+}
+
+.body-rich p {
+  margin-bottom: 16rpx;
+}
+
+.detail-end {
+  padding: 32rpx 48rpx 64rpx;
+  text-align: center;
+}
+
+.end-divider {
+  height: 2rpx;
+  background: #F0F0F0;
+  margin-bottom: 24rpx;
+}
+
+.end-text {
+  font-size: 22rpx;
+  color: #CCCCCC;
+  letter-spacing: 4rpx;
+}
+
+/* ==================== 底部留白 ==================== */
+.bottom-spacer {
+  height: 80rpx;
+}

@@ -1,0 +1,13 @@
+<!--components/custom-tabbar/custom-tabbar.wxml - 自定义TabBar（喜茶极简风）-->
+<view class="custom-tabbar">
+  <view
+    class="tab-item {{selected === index ? 'active' : ''}}"
+    wx:for="{{list}}"
+    wx:key="index"
+    bindtap="switchTab"
+    data-index="{{index}}"
+    data-path="{{item.pagePath}}"
+  >
+    <text class="tab-text">{{item.text}}</text>
+  </view>
+</view>

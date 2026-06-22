@@ -1,0 +1,57 @@
+<!--pages/cases/cases.wxml - 项目案例页（喜茶极简风）-->
+<view class="page-cases">
+
+  <nav-bar title="项目案例" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+
+  <!-- 案例列表 -->
+  <view class="cases-list">
+    <view class="case-item" wx:for="{{cases}}" wx:key="_id" bindtap="toggleDetail" data-id="{{item._id}}">
+      <!-- 案例封面 -->
+      <view class="case-cover">
+        <image lazy-load src="{{item.images[0]}}" mode="aspectFill" class="cover-img"></image>
+      </view>
+
+      <!-- 案例信息 -->
+      <view class="case-info">
+        <view class="case-header">
+          <text class="case-title">{{item.title}}</text>
+          <text class="case-location">{{item.location}}</text>
+        </view>
+        <text class="case-subtitle">{{item.subtitle}}</text>
+        <text class="case-desc">{{item.description}}</text>
+
+        <!-- 数据展示 -->
+        <view class="case-stats">
+          <view class="stat-item" wx:for="{{item.stats}}" wx:key="index" wx:for-item="stat">
+            <text class="stat-value">{{stat}}</text>
+            <text class="stat-label">{{index}}</text>
+          </view>
+        </view>
+
+        <!-- 详情展开 -->
+        <view class="case-detail" wx:if="{{expandedId === item._id}}">
+          <view class="detail-images" wx:if="{{item.images.length > 1}}">
+            <image
+              lazy-load
+              wx:for="{{item.images}}"
+              wx:key="*this"
+              wx:for-item="img"
+              src="{{img}}"
+              mode="aspectFill"
+              class="detail-img"
+            ></image>
+          </view>
+        </view>
+
+        <view class="case-toggle">
+          <text class="toggle-text">{{expandedId === item._id ? '收起详情' : '查看详情'}}</text>
+          <text class="toggle-arrow {{expandedId === item._id ? 'expanded' : ''}}">↓</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部留白 -->
+  <view class="bottom-spacer"></view>
+
+</view>

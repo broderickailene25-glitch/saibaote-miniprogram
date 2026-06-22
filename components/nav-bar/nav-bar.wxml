@@ -1,0 +1,27 @@
+<!--components/nav-bar/nav-bar.wxml - 自定义导航栏-->
+<view class="nav-bar {{transparent ? 'nav-bar-transparent' : ''}} {{dark ? 'nav-bar-dark' : ''}}" style="padding-top: {{statusBarHeight}}px;">
+  <view class="nav-bar-content" style="height: {{navBarHeight}}px;">
+    <!-- 左侧 -->
+    <view class="nav-bar-left" bindtap="onLeftTap">
+      <view wx:if="{{showBack}}" class="nav-back">
+        <text class="back-arrow">‹</text>
+        <text wx:if="{{backText}}" class="back-text">{{backText}}</text>
+      </view>
+      <slot name="left"></slot>
+    </view>
+
+    <!-- 标题 -->
+    <view class="nav-bar-title">
+      <text wx:if="{{title}}" class="title-text">{{title}}</text>
+      <slot name="title"></slot>
+    </view>
+
+    <!-- 右侧 -->
+    <view class="nav-bar-right" bindtap="onRightTap">
+      <slot name="right"></slot>
+    </view>
+  </view>
+</view>
+
+<!-- 占位 -->
+<view wx:if="{{!transparent}}" class="nav-bar-placeholder" style="height: {{statusBarHeight + navBarHeight}}px;"></view>

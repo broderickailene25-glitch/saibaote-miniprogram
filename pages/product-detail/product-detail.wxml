@@ -1,0 +1,96 @@
+<!--pages/product-detail/product-detail.wxml - 产品详情页（喜茶极简风）-->
+<view class="page-detail" wx:if="{{product}}">
+
+  <!-- 自定义导航栏：白底黑字 -->
+  <nav-bar title="产品详情" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+
+  <!-- 产品图片：全宽大图 -->
+  <view class="hero-section">
+    <swiper
+      class="hero-swiper"
+      indicator-dots="{{product.images.length > 1}}"
+      indicator-color="rgba(255,255,255,0.4)"
+      indicator-active-color="#FFFFFF"
+      autoplay="{{false}}"
+      circular
+    >
+      <swiper-item wx:for="{{product.images}}" wx:key="*this">
+        <image lazy-load src="{{item}}" mode="aspectFill" class="hero-img"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 产品核心信息 -->
+  <view class="info-section">
+    <view class="info-top">
+      <text class="info-name">{{product.name}}</text>
+      <text class="info-price">¥{{product.priceText}}</text>
+    </view>
+    <text class="info-subtitle">{{product.subtitle}}</text>
+  </view>
+
+  <!-- 产品规格 -->
+  <view class="specs-section" wx:if="{{product.specs.length > 0}}">
+    <view class="section-header">
+      <text class="section-title">产品规格</text>
+    </view>
+    <view class="specs-list">
+      <view class="spec-row" wx:for="{{product.specs}}" wx:key="name">
+        <text class="spec-label">{{item.name}}</text>
+        <text class="spec-value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 产品特点 -->
+  <view class="features-section" wx:if="{{product.features.length > 0}}">
+    <view class="section-header">
+      <text class="section-title">产品特点</text>
+    </view>
+    <view class="features-list">
+      <view class="feature-tag" wx:for="{{product.features}}" wx:key="*this">
+        <text class="feature-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 产品详情描述 -->
+  <view class="desc-section" wx:if="{{product.description}}">
+    <view class="section-header">
+      <text class="section-title">产品介绍</text>
+    </view>
+    <text class="desc-text">{{product.description}}</text>
+  </view>
+
+  <!-- 底部安全区 -->
+  <view class="bottom-safe"></view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="bar-left">
+      <view class="bar-icon-btn" bindtap="goToHome">
+        <view class="icon-home"></view>
+        <text class="bar-icon-label">首页</text>
+      </view>
+      <view class="bar-icon-btn" bindtap="goToCart">
+        <view class="icon-cart"></view>
+        <text class="bar-icon-label">购物车</text>
+        <view class="cart-badge" wx:if="{{cartCount > 0}}">{{cartCount}}</view>
+      </view>
+    </view>
+    <view class="bar-right">
+      <view class="btn-outline" bindtap="contactService">
+        <text>客服</text>
+      </view>
+      <view class="btn-primary" bindtap="addToCart">
+        <text>加入购物车</text>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 加载中 -->
+<view class="loading-state" wx:if="{{!product}}">
+  <text class="loading-text">加载中...</text>
+</view>

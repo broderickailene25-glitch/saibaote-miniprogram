@@ -1,0 +1,206 @@
+/* pages/patents/patents.wxss - 技术专利页（喜茶极简现代风） */
+
+.page-patents {
+  min-height: 100vh;
+  background: #FFFFFF;
+}
+
+/* ==================== 概览 ==================== */
+.overview-section {
+  padding: 80rpx 64rpx;
+  display: flex;
+  justify-content: center;
+  background: #FFFFFF;
+}
+
+.overview-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.overview-number {
+  font-size: 100rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  line-height: 1;
+}
+
+.overview-label {
+  font-size: 30rpx;
+  color: #666666;
+  margin-top: 16rpx;
+  margin-bottom: 24rpx;
+  letter-spacing: 4rpx;
+}
+
+.overview-desc {
+  font-size: 24rpx;
+  color: #999999;
+  max-width: 480rpx;
+  line-height: 1.6;
+}
+
+/* ==================== 筛选栏 ==================== */
+.filter-bar {
+  border-bottom: 1rpx solid #F0F0F0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #FFFFFF;
+}
+
+.filter-scroll {
+  white-space: nowrap;
+}
+
+.filter-list {
+  display: inline-flex;
+  padding: 24rpx 48rpx;
+  gap: 20rpx;
+}
+
+.filter-item {
+  display: inline-flex;
+  padding: 12rpx 28rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  color: #666666;
+  background: #F8F8F8;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.filter-item.active {
+  background: #1A1A1A;
+  color: #FFFFFF;
+}
+
+/* ==================== 专利列表 ==================== */
+.patents-list {
+  padding: 32rpx 48rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.patent-item {
+  padding: 32rpx;
+}
+
+.patent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14rpx;
+}
+
+.patent-number-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.patent-number {
+  font-size: 20rpx;
+  color: #CCCCCC;
+  font-weight: 500;
+}
+
+.patent-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 12rpx;
+  line-height: 1.5;
+}
+
+.patent-summary {
+  display: block;
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* ==================== 详情展开 ==================== */
+.patent-detail {
+  margin-top: 8rpx;
+}
+
+.patent-desc {
+  display: block;
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 1.8;
+  margin-bottom: 24rpx;
+}
+
+.patent-techs {
+  margin-top: 16rpx;
+}
+
+.tech-label {
+  display: block;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin-bottom: 14rpx;
+}
+
+.tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.tech-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12rpx;
+}
+
+.tech-dot {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #CCCCCC;
+  margin-top: 14rpx;
+  flex-shrink: 0;
+}
+
+.tech-text {
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* ==================== 展开/收起 ==================== */
+.patent-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  margin-top: 20rpx;
+}
+
+.toggle-text {
+  font-size: 22rpx;
+  color: #CCCCCC;
+}
+
+.toggle-arrow {
+  font-size: 22rpx;
+  color: #CCCCCC;
+  transition: transform 0.3s ease;
+}
+
+.toggle-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+/* ==================== 底部留白 ==================== */
+.bottom-spacer {
+  height: 80rpx;
+}

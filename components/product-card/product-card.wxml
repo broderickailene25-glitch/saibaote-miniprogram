@@ -1,0 +1,42 @@
+<!--components/product-card/product-card.wxml - 产品卡片-->
+<view class="product-card {{shadow ? 'has-shadow' : ''}}" bindtap="onTap">
+  <!-- 图片区域 -->
+  <view class="card-image-wrap">
+    <image
+      src="{{image}}"
+      mode="{{imageMode}}"
+      class="card-image"
+      lazy-load
+    ></image>
+    <!-- 角标 -->
+    <view wx:if="{{badge}}" class="card-badge {{badgeType ? 'badge-' + badgeType : ''}}">
+      <text>{{badge}}</text>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="card-body">
+    <!-- 标题 -->
+    <text class="card-title">{{title}}</text>
+
+    <!-- 描述 -->
+    <text wx:if="{{desc}}" class="card-desc">{{desc}}</text>
+
+    <!-- 标签 -->
+    <view wx:if="{{tags.length}}" class="card-tags">
+      <text wx:for="{{tags}}" wx:key="index" class="card-tag">{{item}}</text>
+    </view>
+
+    <!-- 底部 -->
+    <view class="card-footer">
+      <view class="card-price-wrap">
+        <text wx:if="{{price}}" class="card-price">{{price}}</text>
+        <text wx:if="{{unit}}" class="card-unit">{{unit}}</text>
+      </view>
+      <view wx:if="{{showAction}}" class="card-action">
+        <text class="action-text">{{actionText || '了解详情'}}</text>
+        <text class="action-arrow">›</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,128 @@
+{
+  "miniprogramRoot": "./",
+  "cloudfunctionRoot": "cloud/",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": false,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "showES6CompileOption": false,
+    "minifyWXML": true,
+    "useStaticServer": true,
+    "checkKeyRecurrence": true,
+    "ignoreUploadUnusedFiles": true,
+    "compileWorklet": false,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
+  },
+  "appid": "wx68f8ae4e41c7aed6",
+  "projectname": "saibaote-miniprogram",
+  "libVersion": "2.25.4",
+  "cloudfunctionTemplateRoot": "",
+  "condition": {},
+  "srcMiniprogramRoot": "",
+  "compileType": "miniprogram",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": ".git"
+      },
+      {
+        "type": "folder",
+        "value": ".omx"
+      },
+      {
+        "type": "folder",
+        "value": "_versions"
+      },
+      {
+        "type": "folder",
+        "value": "assets"
+      },
+      {
+        "type": "folder",
+        "value": "images"
+      },
+      {
+        "type": "folder",
+        "value": "images/originals"
+      },
+      {
+        "type": "file",
+        "value": ".DS_Store"
+      },
+      {
+        "type": "file",
+        "value": "README.md"
+      },
+      {
+        "type": "file",
+        "value": "images/brand-card-left.png"
+      },
+      {
+        "type": "file",
+        "value": "images/brand-card-right.png"
+      },
+      {
+        "type": "file",
+        "value": "images/hero-product.png"
+      },
+      {
+        "type": "file",
+        "value": "images/hero-product-2.png"
+      },
+      {
+        "type": "file",
+        "value": "images/news-lixia.png"
+      },
+      {
+        "type": "file",
+        "value": "images/product-organic-2.png"
+      },
+      {
+        "type": "file",
+        "value": "images/product-organic-3.png"
+      },
+      {
+        "type": "file",
+        "value": "images/product-balcony.png"
+      }
+    ],
+    "include": []
+  },
+  "description": "赛宝特微信小程序 - 农业全产业链电商平台",
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {}
+}
