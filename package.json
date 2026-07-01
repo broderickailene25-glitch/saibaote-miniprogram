@@ -1,0 +1,16 @@
+{
+  "name": "saibaote-miniprogram-local",
+  "version": "1.0.0",
+  "description": "> 极简现代风 · 纯白背景 · 黑白灰主色 · 品牌绿仅点缀 · 农业全产业链电商平台",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  }
+}

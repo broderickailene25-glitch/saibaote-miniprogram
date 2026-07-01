@@ -1,0 +1,63 @@
+<!--pages/activity/activity.wxml — 活动列表页-->
+<view class="page-activity">
+
+  <!-- 顶部导航 -->
+  <view class="header">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">←</text>
+    </view>
+    <text class="page-title">Activities</text>
+    <view class="back-btn-placeholder"></view>
+  </view>
+
+  <!-- 分享横幅 -->
+  <share-banner></share-banner>
+
+  <!-- 优惠券领取区 -->
+  <view class="coupon-section" wx:if="{{coupons.length > 0}}">
+    <view class="coupon-section-title">
+      <text class="coupon-title-text">专属优惠</text>
+    </view>
+
+    <view class="coupon-list">
+      <view class="coupon-card" wx:for="{{coupons}}" wx:key="_id">
+        <!-- 左侧：金额 -->
+        <view class="coupon-left">
+          <text class="coupon-value">¥{{item.value}}</text>
+          <text class="coupon-condition">满{{item.minOrder}}可用</text>
+        </view>
+
+        <!-- 分割线 -->
+        <view class="coupon-divider"></view>
+
+        <!-- 右侧：信息+按钮 -->
+        <view class="coupon-right">
+          <text class="coupon-name">{{item.name}}</text>
+          <text class="coupon-desc">{{item.desc}}</text>
+          <text class="coupon-date">有效期至 {{item.endDate}}</text>
+          <view class="coupon-btn {{item.status === 'claimed' ? 'claimed' : ''}}" bindtap="claimCoupon" data-id="{{item._id}}">
+            <text class="coupon-btn-text">{{item.status === 'claimed' ? '已领取' : '立即领取'}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分割线 -->
+  <view class="section-divider"></view>
+
+  <!-- 活动列表 -->
+  <view class="activity-list">
+    <view class="activity-card" wx:for="{{activities}}" wx:key="_id" bindtap="goToDetail" data-id="{{item._id}}">
+      <image class="activity-img" src="{{item.image}}" mode="aspectFill"></image>
+      <view class="activity-info">
+        <text class="activity-title">{{item.title}}</text>
+        <text class="activity-subtitle">{{item.subtitle}}</text>
+        <text class="activity-date">{{item.startDate}} — {{item.endDate}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部留白 -->
+  <view class="bottom-safe"></view>
+</view>

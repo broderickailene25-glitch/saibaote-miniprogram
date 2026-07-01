@@ -1,0 +1,233 @@
+/* pages/activity/activity.wxss — 活动列表页 */
+
+.page-activity {
+  min-height: 100vh;
+  background: #FAFAF8;
+}
+
+/* 顶部导航 */
+.header {
+  padding: 104rpx 40rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 40rpx;
+}
+
+.back-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  font-size: 36rpx;
+  color: #2C2C2C;
+}
+
+.back-btn-placeholder {
+  width: 64rpx;
+}
+
+.page-title {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 32rpx;
+  color: #2C2C2C;
+  letter-spacing: 4rpx;
+}
+
+/* 活动列表 */
+.activity-list {
+  padding: 24rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 40rpx;
+}
+
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-bottom: 1rpx solid #EEEEEE;
+  padding-bottom: 40rpx;
+}
+
+.activity-img {
+  width: 100%;
+  height: 480rpx;
+  border-radius: 4rpx;
+}
+
+.activity-info {
+  padding: 28rpx 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.activity-title {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 34rpx;
+  color: #2C2C2C;
+  line-height: 1.3;
+}
+
+.activity-subtitle {
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #888888;
+  line-height: 1.6;
+}
+
+.activity-date {
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #AAAAAA;
+  letter-spacing: 2rpx;
+  margin-top: 4rpx;
+}
+
+/* ==================== 优惠券区 ==================== */
+.coupon-section {
+  padding: 0 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.coupon-section-title {
+  margin-bottom: 24rpx;
+}
+
+.coupon-title-text {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 28rpx;
+  color: #2C2C2C;
+  letter-spacing: 4rpx;
+}
+
+/* 优惠券卡片 */
+.coupon-card {
+  display: flex;
+  align-items: stretch;
+  background: #FFFFFF;
+  border: 1rpx solid #EEEEEE;
+  margin-bottom: 20rpx;
+  height: 160rpx;
+}
+
+/* 左侧金额 */
+.coupon-left {
+  width: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6rpx;
+  flex-shrink: 0;
+}
+
+.coupon-value {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 48rpx;
+  font-weight: 400;
+  color: #D4A373;
+  letter-spacing: 2rpx;
+}
+
+.coupon-condition {
+  font-size: 18rpx;
+  color: #AAAAAA;
+  letter-spacing: 1rpx;
+}
+
+/* 分割线 */
+.coupon-divider {
+  width: 1rpx;
+  background: #EEEEEE;
+  position: relative;
+}
+
+.coupon-divider::before {
+  content: '';
+  position: absolute;
+  top: -10rpx;
+  left: -10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  background: #FAFAF8;
+  border-radius: 50%;
+}
+
+.coupon-divider::after {
+  content: '';
+  position: absolute;
+  bottom: -10rpx;
+  left: -10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  background: #FAFAF8;
+  border-radius: 50%;
+}
+
+/* 右侧信息 */
+.coupon-right {
+  flex: 1;
+  padding: 20rpx 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rpx;
+}
+
+.coupon-name {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #2C2C2C;
+  letter-spacing: 1rpx;
+}
+
+.coupon-desc {
+  font-size: 18rpx;
+  color: #888888;
+}
+
+.coupon-date {
+  font-size: 16rpx;
+  color: #AAAAAA;
+  margin-bottom: 6rpx;
+}
+
+/* 领取按钮 */
+.coupon-btn {
+  align-self: flex-start;
+  padding: 8rpx 28rpx;
+  background: #2C2C2C;
+  border: none;
+}
+
+.coupon-btn.claimed {
+  background: #EEEEEE;
+}
+
+.coupon-btn-text {
+  font-size: 18rpx;
+  color: #FFFFFF;
+  letter-spacing: 2rpx;
+}
+
+.coupon-btn.claimed .coupon-btn-text {
+  color: #AAAAAA;
+}
+
+/* 分割线 */
+.section-divider {
+  width: 48rpx;
+  height: 2rpx;
+  background: #D4A373;
+  margin: 0 auto 40rpx;
+}
+
+.bottom-safe {
+  height: 120rpx;
+}

@@ -1,0 +1,25 @@
+<!--pages/activity-detail/activity-detail.wxml — 活动详情页（纯大图）-->
+<view class="page-detail" wx:if="{{activity}}">
+
+  <!-- 顶部导航 -->
+  <view class="header">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">←</text>
+    </view>
+    <text class="page-title">{{activity.title}}</text>
+    <view class="back-btn-placeholder"></view>
+  </view>
+
+  <!-- 活动大图：完整展示 -->
+  <view class="image-area">
+    <image class="detail-img" src="{{activity.image}}" mode="widthFix"></image>
+  </view>
+
+  <!-- 信息区 -->
+  <view class="info-area">
+    <text class="detail-title">{{activity.title}}</text>
+    <text class="detail-subtitle">{{activity.subtitle}}</text>
+    <text class="detail-date">{{activity.startDate}} — {{activity.endDate}}</text>
+  </view>
+
+</view>

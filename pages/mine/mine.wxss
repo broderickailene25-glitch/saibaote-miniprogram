@@ -1,252 +1,262 @@
-/* pages/mine/mine.wxss - 个人中心页样式（喜茶极简风） */
+/* pages/mine/mine.wxss — 对齐会员页风格（填充SVG图标） */
+
+page {
+  --bg: #FAFAF8;
+  --text: #2C2C2C;
+  --text-light: #888888;
+  --text-muted: #AAAAAA;
+  --border: #EEEEEE;
+  --gold: #D4A373;
+}
 
 .page-mine {
   min-height: 100vh;
-  background: #FFFFFF;
-  padding-bottom: 160rpx;
+  background: var(--bg);
+  padding: 0 56rpx;
 }
 
-/* ==================== 用户信息 ==================== */
-.user-section {
-  padding: 64rpx 48rpx 30rpx;
-  background: #FFFFFF;
-}
-
-.user-card {
+/* ==================== 顶部用户信息（与会员页一致） ==================== */
+.user-header {
   display: flex;
   align-items: center;
   gap: 28rpx;
-}
-
-.user-avatar-wrap {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #F5F5F5;
-  flex-shrink: 0;
+  padding-top: 120rpx;
+  padding-bottom: 32rpx;
 }
 
 .user-avatar {
-  width: 100%;
-  height: 100%;
-}
-
-.user-info {
-  flex: 1;
+  width: 80rpx;
+  height: 80rpx;
+  flex-shrink: 0;
   display: flex;
-  flex-direction: column;
-}
-
-.user-name {
-  font-size: 36rpx;
-  font-weight: 500;
-  color: #1A1A1A;
-  margin-bottom: 8rpx;
-}
-
-.user-desc {
-  font-size: 24rpx;
-  color: #999999;
-}
-
-.user-login-btn {
-  padding: 16rpx 36rpx;
-  background: #1A1A1A;
-  color: #FFFFFF;
-  border-radius: 999rpx;
-  font-size: 26rpx;
-}
-
-/* ==================== 会员入口 ==================== */
-.member-entry {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 5rpx;
-  padding: 26rpx 32rpx;
-}
-
-.member-left {
-  display: flex;
-  align-items: center;
-  gap: 12rpx;
-}
-
-.member-text {
-  font-size: 26rpx;
-  font-weight: 500;
-  color: #1A1A1A;
-}
-
-.member-arrow {
-  font-size: 28rpx;
-  color: #CCCCCC;
-}
-
-/* ==================== Section ==================== */
-.section {
-  padding: 25rpx 48rpx 0;
-  margin-bottom: 25rpx;
-}
-
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40rpx;
-}
-
-.title-text {
-  font-size: 32rpx;
-  font-weight: 500;
-  color: #1A1A1A;
-}
-
-.section-more {
-  display: flex;
-  align-items: center;
-  gap: 4rpx;
-}
-
-.more-text {
-  font-size: 26rpx;
-  color: #999999;
-}
-
-.more-arrow {
-  font-size: 26rpx;
-  color: #999999;
-}
-
-/* ==================== 订单入口 ==================== */
-.order-grid {
-  display: flex;
-  justify-content: space-between;
-  background: #FFFFFF;
-  border-radius: 24rpx;
-  padding: 36rpx 24rpx;
-}
-
-.order-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8rpx;
-  flex: 1;
-}
-
-.order-badge {
-  min-width: 28rpx;
-  height: 28rpx;
-  padding: 0 6rpx;
-  background: #E53935;
-  color: #FFFFFF;
-  font-size: 18rpx;
-  border-radius: 14rpx;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.order-label {
-  font-size: 26rpx;
-  font-weight: 500;
-  color: #1A1A1A;
+.avatar-icon {
+  width: 80rpx;
+  height: 80rpx;
 }
 
-/* ==================== 功能列表 ==================== */
-.func-list {
+.user-info {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  background: #FFFFFF;
-  border-radius: 24rpx;
-  overflow: hidden;
+  gap: 12rpx;
+}
+
+.user-name {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 34rpx;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 2rpx;
+}
+
+.user-level-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 16rpx;
+  border: 1rpx solid var(--gold);
+  border-radius: 4rpx;
+  align-self: flex-start;
+}
+
+.level-tag-text {
+  font-size: 18rpx;
+  font-weight: 400;
+  letter-spacing: 3rpx;
+  color: var(--gold);
+}
+
+/* ==================== 会员中心入口 ==================== */
+.member-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28rpx;
+  padding: 24rpx 0;
+  border-top: 1rpx solid var(--border);
+  border-bottom: 1rpx solid var(--border);
+}
+
+.member-link-text {
+  font-size: 24rpx;
+  font-weight: 400;
+  letter-spacing: 3rpx;
+  color: var(--text);
+}
+
+.member-link-arrow {
+  font-size: 32rpx;
+  color: var(--text-muted);
+}
+
+/* ==================== 金色分割线（与会员页一致） ==================== */
+.section-divider {
+  width: 64rpx;
+  height: 2rpx;
+  background: var(--gold);
+  margin: 0 auto 56rpx;
+}
+
+/* ==================== 权益区（复用会员页 benefits 结构） ==================== */
+.benefits-section {
+  margin-bottom: 64rpx;
+}
+
+.section-title {
+  display: block;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 30rpx;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 4rpx;
+  margin-bottom: 40rpx;
+}
+
+.benefits-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32rpx 0;
+}
+
+/* 4列网格（订单） */
+.grid-4 .benefit-card {
+  width: 25%;
+}
+
+/* 3列网格（更多服务） */
+.grid-3 .benefit-card {
+  width: 33.33%;
+}
+
+.benefit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+  padding: 0 12rpx;
+  box-sizing: border-box;
+}
+
+.benefit-icon {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.benefit-title {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 2rpx;
+  text-align: center;
+}
+
+.benefit-desc {
+  font-size: 18rpx;
+  font-weight: 300;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 1rpx;
+}
+
+/* ==================== 功能列表（线条式） ==================== */
+.func-list {
+  margin-bottom: 64rpx;
 }
 
 .func-item {
   display: flex;
   align-items: center;
-  gap: 24rpx;
-  padding: 30rpx 32rpx;
-  margin-bottom: 0;
-  border-radius: 0;
-  box-shadow: none;
-  border: none;
-  border-bottom: 1rpx solid #F5F5F5;
+  justify-content: space-between;
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid var(--border);
 }
 
-.func-item:last-child {
-  border-bottom: none;
+.func-item:first-child {
+  border-top: 1rpx solid var(--border);
+}
+
+.func-left {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.func-icon {
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .func-label {
-  flex: 1;
-  font-size: 28rpx;
-  font-weight: 500;
-  color: #1A1A1A;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 1rpx;
 }
 
 .func-right {
   display: flex;
   align-items: center;
-  gap: 8rpx;
+  gap: 12rpx;
 }
 
 .func-badge {
-  padding: 4rpx 12rpx;
-  background: #E53935;
-  color: #FFFFFF;
-  font-size: 18rpx;
-  border-radius: 999rpx;
-  min-width: 32rpx;
-  text-align: center;
+  font-size: 20rpx;
+  color: var(--text-muted);
+  letter-spacing: 1rpx;
 }
 
 .func-arrow {
-  font-size: 28rpx;
-  color: #999999;
+  font-size: 32rpx;
+  color: #DDD;
 }
 
-/* ==================== 更多服务 ==================== */
-.other-grid {
-  display: flex;
-  background: #FFFFFF;
-  border-radius: 24rpx;
-}
-
-.other-item {
-  flex: 1;
+/* ==================== 分享入口 ==================== */
+.share-row {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12rpx;
   padding: 28rpx 0;
-  border-right: 1rpx solid #F5F5F5;
+  border-top: 1rpx solid var(--border);
+  border-bottom: 1rpx solid var(--border);
+  margin-bottom: 48rpx;
 }
 
-.other-item:last-child {
-  border-right: none;
+.share-icon {
+  width: 32rpx;
+  height: 32rpx;
 }
 
-.other-label {
+.share-text {
   font-size: 26rpx;
-  font-weight: 500;
-  color: #1A1A1A;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 2rpx;
 }
 
-/* ==================== 版本信息 ==================== */
+/* ==================== 底部版本 ==================== */
 .version-info {
   text-align: center;
-  padding: 48rpx;
+  padding-bottom: 24rpx;
+}
+
+.version-divider {
+  width: 64rpx;
+  height: 2rpx;
+  background: var(--gold);
+  margin: 0 auto 24rpx;
 }
 
 .version-text {
-  font-size: 24rpx;
-  color: #CCCCCC;
+  font-size: 20rpx;
+  color: #D0CCC8;
+  letter-spacing: 2rpx;
 }
 
-/* ==================== 底部留白 ==================== */
-.bottom-spacer {
-  height: 40rpx;
+/* ==================== 底部安全区 ==================== */
+.bottom-safe {
+  height: 180rpx;
 }

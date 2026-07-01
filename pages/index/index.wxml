@@ -1,44 +1,39 @@
-<!--pages/index/index.wxml - 赛宝特首页（全屏品牌展示 + 10s轮播）-->
+<!--pages/index/index.wxml - 赛宝特首页（图片完整 + 底部留白极简）-->
 <view class="page-index">
 
-  <!-- 全屏背景（轮播交叉渐隐） -->
-  <view class="fullscreen-bg">
-    <image src="{{heroImagePrimary}}" mode="widthFix" class="bg-img {{currentBg === 0 ? 'visible' : ''}}"></image>
-    <image src="{{heroImageSecondary}}" mode="widthFix" class="bg-img {{currentBg === 1 ? 'visible' : ''}}"></image>
+  <!-- 图片区域：完整展示，无遮挡 -->
+  <view class="image-area">
+    <image class="hero-img" src="{{heroImage}}" mode="widthFix"></image>
   </view>
 
-  <!-- 底部轮播指示器 -->
-  <view class="indicator-dots">
-    <view class="dot {{currentBg === 0 ? 'active' : ''}}"></view>
-    <view class="dot {{currentBg === 1 ? 'active' : ''}}"></view>
-  </view>
+  <!-- 底部留白区 -->
+  <view class="content-area">
 
-  <!-- 主内容：居中排版 -->
-  <view class="main-content">
+    <!-- 上半：标题+描述 -->
+    <view class="content-top">
+      <text class="hero-title">探索有机农业</text>
+      <view class="divider-line"></view>
+      <text class="hero-desc">14项核心专利覆盖有机肥料、预混饲料、生物质农药，1500+有机基地实证品质</text>
+    </view>
 
-    <!-- 顶部留白 -->
-    <view class="top-spacer"></view>
-
-    <!-- 底部信息区 -->
-    <view class="bottom-area">
-      <view class="info-row">
-        <view class="info-item">
-          <text class="info-num">14</text>
-          <text class="info-label">核心专利</text>
+    <!-- 下半：数据+按钮 -->
+    <view class="content-bottom">
+      <view class="stats-row">
+        <view class="stat-item">
+          <text class="stat-num">14</text>
+          <text class="stat-label">核心专利</text>
         </view>
-        <view class="info-divider"></view>
-        <view class="info-item">
-          <text class="info-num">3</text>
-          <text class="info-label">产品线</text>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+          <text class="stat-num">3</text>
+          <text class="stat-label">产品线</text>
         </view>
-        <view class="info-divider"></view>
-        <view class="info-item">
-          <text class="info-num">1500+</text>
-          <text class="info-label">有机基地</text>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+          <text class="stat-num">1500+</text>
+          <text class="stat-label">有机基地</text>
         </view>
       </view>
-
-      <!-- 进入按钮 -->
       <view class="enter-btn" bindtap="goToProducts">
         <text class="enter-text">探索产品</text>
       </view>

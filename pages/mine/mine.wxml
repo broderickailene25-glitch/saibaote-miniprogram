@@ -1,113 +1,140 @@
-<!--pages/mine/mine.wxml - 个人中心页-->
+<!--pages/mine/mine.wxml - 个人中心（对齐会员页风格：填充SVG图标）-->
 <view class="page-mine">
 
-  <nav-bar title="我的" showBack="{{false}}"></nav-bar>
-
-  <!-- 用户信息 -->
-  <view class="user-section">
-    <view class="user-card">
-      <view class="user-avatar-wrap">
-        <image lazy-load src="{{userInfo.avatarUrl || '/avatar-default.png'}}" mode="aspectFill" class="user-avatar"></image>
-      </view>
-      <view class="user-info">
-        <text class="user-name">{{userInfo.nickName || '未登录'}}</text>
-        <text class="user-desc">赛宝特尊享会员</text>
-      </view>
-      <view class="user-login-btn" wx:if="{{!userInfo.nickName}}" bindtap="getUserProfile">
-        <text>登录</text>
-      </view>
+  <!-- 顶部：头像 + 用户名 + 等级（与会员页一致） -->
+  <view class="user-header">
+    <view class="user-avatar">
+      <image class="avatar-icon" src="/assets/icons/member-avatar.svg" mode="aspectFit"></image>
     </view>
-    <!-- 会员入口 -->
-    <view class="member-entry" bindtap="goToMember">
-      <view class="member-left">
-        <text class="member-text">会员中心</text>
-      </view>
-      <text class="member-arrow">→</text>
-    </view>
-  </view>
-
-  <!-- 订单入口 -->
-  <view class="section order-section">
-    <view class="section-title">
-      <text class="title-text">我的订单</text>
-      <view class="section-more" bindtap="goToOrders">
-        <text class="more-text">全部</text>
-        <text class="more-arrow">→</text>
-      </view>
-    </view>
-    <view class="order-grid">
-      <view class="order-item" bindtap="goToOrders" data-status="pending">
-        <text class="order-label">待确认</text>
-        <view class="order-badge" wx:if="{{orderCounts.pending > 0}}">{{orderCounts.pending}}</view>
-      </view>
-      <view class="order-item" bindtap="goToOrders" data-status="paid">
-        <text class="order-label">待发货</text>
-        <view class="order-badge" wx:if="{{orderCounts.paid > 0}}">{{orderCounts.paid}}</view>
-      </view>
-      <view class="order-item" bindtap="goToOrders" data-status="shipped">
-        <text class="order-label">待收货</text>
-        <view class="order-badge" wx:if="{{orderCounts.shipped > 0}}">{{orderCounts.shipped}}</view>
-      </view>
-      <view class="order-item" bindtap="goToOrders" data-status="completed">
-        <text class="order-label">已完成</text>
+    <view class="user-info">
+      <text class="user-name">{{userInfo.nickName || '赛宝特用户'}}</text>
+      <view class="user-level-tag">
+        <text class="level-tag-text">尊享会员</text>
       </view>
     </view>
   </view>
 
-  <!-- 功能列表 -->
-  <view class="section func-section">
-    <view class="func-list">
-      <view class="func-item" bindtap="goToCart">
+  <!-- 分享横幅 -->
+  <share-banner></share-banner>
+
+  <!-- 会员中心入口（直接跳转） -->
+  <view class="member-link" bindtap="goToMember">
+    <text class="member-link-text">会员中心</text>
+    <text class="member-link-arrow">›</text>
+  </view>
+
+  <!-- 金色分割线 -->
+  <view class="section-divider"></view>
+
+  <!-- 我的订单（填充SVG图标，4列网格） -->
+  <view class="benefits-section">
+    <text class="section-title">我的订单</text>
+    <view class="benefits-grid grid-4">
+      <view class="benefit-card" bindtap="goToOrders" data-status="pending">
+        <image class="benefit-icon" src="/assets/icons/icon-order-pending.svg" mode="aspectFit"></image>
+        <text class="benefit-title">待确认</text>
+        <text class="benefit-desc" wx:if="{{orderCounts.pending > 0}}">{{orderCounts.pending}}笔待处理</text>
+        <text class="benefit-desc" wx:else>暂无</text>
+      </view>
+      <view class="benefit-card" bindtap="goToOrders" data-status="paid">
+        <image class="benefit-icon" src="/assets/icons/icon-order-box.svg" mode="aspectFit"></image>
+        <text class="benefit-title">待发货</text>
+        <text class="benefit-desc" wx:if="{{orderCounts.paid > 0}}">{{orderCounts.paid}}笔待发出</text>
+        <text class="benefit-desc" wx:else>等待发出</text>
+      </view>
+      <view class="benefit-card" bindtap="goToOrders" data-status="shipped">
+        <image class="benefit-icon" src="/assets/icons/icon-order-truck.svg" mode="aspectFit"></image>
+        <text class="benefit-title">待收货</text>
+        <text class="benefit-desc" wx:if="{{orderCounts.shipped > 0}}">{{orderCounts.shipped}}笔运输中</text>
+        <text class="benefit-desc" wx:else>暂无</text>
+      </view>
+      <view class="benefit-card" bindtap="goToOrders" data-status="completed">
+        <image class="benefit-icon" src="/assets/icons/icon-order-done.svg" mode="aspectFit"></image>
+        <text class="benefit-title">已完成</text>
+        <text class="benefit-desc">全部订单</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 金色分割线 -->
+  <view class="section-divider"></view>
+
+  <!-- 常用功能（填充SVG图标，线条列表） -->
+  <view class="func-list">
+    <view class="func-item" bindtap="goToCart">
+      <view class="func-left">
+        <image class="func-icon" src="/assets/icons/icon-cart.svg" mode="aspectFit"></image>
         <text class="func-label">购物车</text>
-        <view class="func-right">
-          <text class="func-badge" wx:if="{{cartCount > 0}}">{{cartCount}}</text>
-          <text class="func-arrow">→</text>
-        </view>
       </view>
-      <view class="func-item" bindtap="goToAddress">
+      <view class="func-right">
+        <text class="func-badge" wx:if="{{cartCount > 0}}">{{cartCount}} 件</text>
+        <text class="func-arrow">›</text>
+      </view>
+    </view>
+    <view class="func-item" bindtap="goToAddress">
+      <view class="func-left">
+        <image class="func-icon" src="/assets/icons/icon-location.svg" mode="aspectFit"></image>
         <text class="func-label">收货地址</text>
-        <text class="func-arrow">→</text>
       </view>
-      <view class="func-item" bindtap="goToEvaluation">
+      <text class="func-arrow">›</text>
+    </view>
+    <view class="func-item" bindtap="goToEvaluation">
+      <view class="func-left">
+        <image class="func-icon" src="/assets/icons/icon-review.svg" mode="aspectFit"></image>
         <text class="func-label">我的评价</text>
-        <text class="func-arrow">→</text>
       </view>
-      <view class="func-item" bindtap="goToContact">
+      <text class="func-arrow">›</text>
+    </view>
+    <view class="func-item" bindtap="goToContact">
+      <view class="func-left">
+        <image class="func-icon" src="/assets/icons/icon-service.svg" mode="aspectFit"></image>
         <text class="func-label">联系客服</text>
-        <text class="func-arrow">→</text>
+      </view>
+      <text class="func-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 金色分割线 -->
+  <view class="section-divider"></view>
+
+  <!-- 更多服务（填充SVG图标，3列网格，与会员专享一致） -->
+  <view class="benefits-section">
+    <text class="section-title">更多服务</text>
+    <view class="benefits-grid grid-3">
+      <view class="benefit-card" bindtap="goToAbout">
+        <image class="benefit-icon" src="/assets/icons/icon-about.svg" mode="aspectFit"></image>
+        <text class="benefit-title">关于我们</text>
+        <text class="benefit-desc">品牌故事</text>
+      </view>
+      <view class="benefit-card" bindtap="goToPatents">
+        <image class="benefit-icon" src="/assets/icons/icon-patent.svg" mode="aspectFit"></image>
+        <text class="benefit-title">技术专利</text>
+        <text class="benefit-desc">14项核心</text>
+      </view>
+      <view class="benefit-card" bindtap="goToNews">
+        <image class="benefit-icon" src="/assets/icons/icon-news.svg" mode="aspectFit"></image>
+        <text class="benefit-title">农业资讯</text>
+        <text class="benefit-desc">行业动态</text>
       </view>
     </view>
   </view>
 
-  <!-- 其他功能 -->
-  <view class="section other-section">
-    <view class="section-title">
-      <text class="title-text">更多服务</text>
-    </view>
-    <view class="other-grid">
-      <view class="other-item" bindtap="goToAbout">
-        <text class="other-label">关于我们</text>
-      </view>
-      <view class="other-item" bindtap="goToPatents">
-        <text class="other-label">技术专利</text>
-      </view>
-      <view class="other-item" bindtap="goToNews">
-        <text class="other-label">农业资讯</text>
-      </view>
-      <view class="other-item" bindtap="shareApp">
-        <text class="other-label">分享好友</text>
-      </view>
-    </view>
+  <!-- 分享入口 -->
+  <view class="share-row" bindtap="shareApp">
+    <image class="share-icon" src="/assets/icons/icon-share.svg" mode="aspectFit"></image>
+    <text class="share-text">分享好友 · 邀请有礼</text>
   </view>
 
-  <!-- 版本信息 -->
+  <!-- 底部版本 -->
   <view class="version-info">
-    <text class="version-text">赛宝特小程序 v1.0.0</text>
+    <view class="version-divider"></view>
+    <text class="version-text">Saibaote · v1.0.0</text>
   </view>
 
-  <view class="bottom-spacer"></view>
+  <!-- 底部安全区 -->
+  <view class="bottom-safe"></view>
 
   <!-- 自定义TabBar -->
-  <custom-tabbar selected="{{3}}" list="{{tabList}}"></custom-tabbar>
+  <custom-tabbar selected="{{4}}" list="{{tabList}}"></custom-tabbar>
 
 </view>

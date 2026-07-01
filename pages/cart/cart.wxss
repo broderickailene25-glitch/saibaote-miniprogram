@@ -1,4 +1,13 @@
-/* pages/cart/cart.wxss - 购物车页样式 */
+/* pages/cart/cart.wxss — Aesop式编辑清单 */
+
+page {
+  --bg: #FAFAF8;
+  --text: #2C2C2C;
+  --text-light: #888888;
+  --text-muted: #AAAAAA;
+  --border: #EEEEEE;
+  --border-footer: #E8E4DE;
+}
 
 .page-cart {
   min-height: 100vh;
@@ -7,30 +16,27 @@
 
 /* ==================== 购物车列表 ==================== */
 .cart-list {
-  padding: 32rpx 48rpx;
-  display: flex;
-  flex-direction: column;
-  gap: 24rpx;
+  padding: 40rpx 56rpx 0;
 }
 
 .cart-item {
   display: flex;
-  gap: 24rpx;
-  padding: 24rpx;
+  gap: 40rpx;
+  padding: 48rpx 0;
+  border-bottom: 1rpx solid var(--border);
+  align-items: flex-start;
+}
+
+.cart-item:first-child {
+  border-top: 1rpx solid var(--border);
 }
 
 /* 产品图片 */
-.item-img-wrap {
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
 .item-img {
-  width: 100%;
-  height: 100%;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 4rpx;
+  flex-shrink: 0;
 }
 
 /* 产品信息 */
@@ -38,85 +44,82 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 12rpx;
   min-width: 0;
 }
 
-.item-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 12rpx;
-}
-
 .item-name {
-  font-size: var(--font-lg);
-  font-weight: 600;
-  color: var(--text-primary);
-  flex: 1;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 30rpx;
+  color: var(--text);
+  line-height: 1.3;
 }
 
-.item-delete {
-  width: 48rpx;
-  height: 48rpx;
+.item-spec {
+  font-size: 22rpx;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 2rpx;
+}
+
+/* 价格 + 数量控件 */
+.item-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-left: 16rpx;
-}
-
-.delete-icon {
-  font-size: 40rpx;
-  color: var(--text-tertiary);
-  line-height: 1;
-}
-
-.item-subtitle {
-  font-size: var(--font-xs);
-  color: var(--text-tertiary);
-  margin-bottom: 16rpx;
+  justify-content: space-between;
+  margin-top: 16rpx;
 }
 
 .item-price {
-  font-size: var(--font-md);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 20rpx;
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 36rpx;
+  color: var(--text);
 }
 
-/* 数量调整 */
-.quantity-bar {
+/* 纯文字 ± 数量控件 */
+.item-qty {
   display: flex;
   align-items: center;
-  gap: 0;
-  align-self: flex-end;
+  gap: 32rpx;
 }
 
 .qty-btn {
   width: 56rpx;
   height: 56rpx;
+  border: 1rpx solid #DDD;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-lg);
-  color: var(--text-primary);
 }
 
-.qty-btn.disabled {
-  color: var(--text-placeholder);
+.qty-btn text {
+  font-size: 28rpx;
+  color: var(--text);
+  line-height: 1;
 }
 
 .qty-btn:active {
-  background: var(--border-light);
+  opacity: 0.6;
 }
 
-.qty-number {
-  width: 80rpx;
+.qty-num {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: var(--text);
+  min-width: 40rpx;
   text-align: center;
-  font-size: var(--font-md);
-  font-weight: 600;
-  color: var(--text-primary);
+}
+
+/* 移除 */
+.item-remove {
+  font-size: 22rpx;
+  color: #CCC;
+  letter-spacing: 2rpx;
+  margin-top: 16rpx;
+}
+
+.item-remove:active {
+  opacity: 0.5;
 }
 
 /* ==================== 空状态 ==================== */
@@ -125,62 +128,97 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 200rpx 48rpx;
+  padding: 240rpx 56rpx;
 }
 
 .empty-icon {
-  font-size: 120rpx;
-  margin-bottom: 32rpx;
-}
-
-.empty-text {
-  font-size: var(--font-lg);
-  color: var(--text-tertiary);
+  font-size: 80rpx;
+  opacity: 0.2;
   margin-bottom: 48rpx;
 }
 
+.empty-text {
+  font-size: 26rpx;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 4rpx;
+  margin-bottom: 80rpx;
+}
+
 .empty-btn {
-  padding: 24rpx 64rpx;
+  padding: 28rpx 80rpx;
+  border: 1rpx solid #DDD;
+  background: none;
+}
+
+.empty-btn text {
+  font-size: 20rpx;
+  font-weight: 500;
+  letter-spacing: 6rpx;
+  color: var(--text);
+}
+
+.empty-btn:active {
+  opacity: 0.6;
 }
 
 /* ==================== 底部结算栏 ==================== */
-.bottom-bar {
+.footer {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  height: 192rpx;
+  background: var(--bg);
+  border-top: 1rpx solid var(--border-footer);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20rpx 48rpx;
-  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
-  background: var(--white-pure);
-  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.04);
+  padding: 0 56rpx;
+  padding-bottom: env(safe-area-inset-bottom);
   z-index: 100;
 }
 
-.bar-info {
+.footer-left {
   display: flex;
-  flex-direction: column;
+  align-items: baseline;
+  gap: 32rpx;
 }
 
-.bar-count {
-  font-size: var(--font-sm);
-  color: var(--text-secondary);
+.footer-total {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 48rpx;
+  color: var(--text);
 }
 
-.bar-right {
+.footer-count {
+  font-size: 22rpx;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 2rpx;
+}
+
+.footer-btn {
+  height: 88rpx;
+  padding: 0 72rpx;
+  background: var(--text);
+  color: var(--bg);
   display: flex;
-  gap: 16rpx;
+  align-items: center;
+  justify-content: center;
 }
 
-.bar-btn {
-  padding: 24rpx 64rpx;
-  border-radius: var(--radius-lg);
-  font-size: var(--font-md);
+.footer-btn text {
+  font-size: 22rpx;
+  font-weight: 500;
+  letter-spacing: 6rpx;
+}
+
+.footer-btn:active {
+  opacity: 0.85;
 }
 
 /* ==================== 底部留白 ==================== */
 .bottom-spacer {
-  height: 180rpx;
+  height: 240rpx;
 }

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "share-banner": "/components/share-banner/share-banner"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": ""
+}

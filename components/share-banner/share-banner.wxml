@@ -1,0 +1,6 @@
+<!-- components/share-banner/share-banner.wxml - 通用分享横幅 -->
+<view class="share-banner" bindtap="onTap">
+  <text class="icon">🎁</text>
+  <text class="text">{{text}} <text class="highlight">{{highlight}}</text></text>
+  <text class="arrow">›</text>
+</view>

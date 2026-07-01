@@ -16,7 +16,9 @@
     "pages/evaluation/evaluation",
     "pages/patents/patents",
     "pages/member/member",
-    "pages/news-list/news-list"
+    "pages/news-list/news-list",
+    "pages/activity/activity",
+    "pages/activity-detail/activity-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,8 +43,12 @@
         "text": "产品"
       },
       {
+        "pagePath": "pages/member/member",
+        "text": "会员"
+      },
+      {
         "pagePath": "pages/news/news",
-        "text": "案例"
+        "text": "资讯"
       },
       {
         "pagePath": "pages/mine/mine",

@@ -1,187 +1,454 @@
-/* pages/member/member.wxss - 会员中心（喜茶极简风） */
+/* pages/member/member.wxss - Aesop暖白风 + 填充图标 */
+
+page {
+  --bg: #FAFAF8;
+  --text: #2C2C2C;
+  --text-light: #888888;
+  --text-muted: #AAAAAA;
+  --border: #EEEEEE;
+  --gold: #D4A373;
+  --card-bg: #F5F3EF;
+}
 
 .page-member {
   min-height: 100vh;
-  background: #FFFFFF;
+  background: var(--bg);
+  padding: 0 56rpx;
+}
+
+/* ==================== 顶部用户信息 ==================== */
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 28rpx;
+  padding-top: 120rpx;
+  padding-bottom: 32rpx;
+}
+
+.user-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-icon {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.user-name {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 34rpx;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 2rpx;
+}
+
+.user-level-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 16rpx;
+  border: 1rpx solid var(--gold);
+  border-radius: 4rpx;
+  align-self: flex-start;
+}
+
+.level-tag-text {
+  font-size: 18rpx;
+  font-weight: 400;
+  letter-spacing: 3rpx;
+  color: var(--gold);
 }
 
 /* ==================== 会员卡 ==================== */
 .member-card {
-  margin: 48rpx 48rpx 64rpx;
-  padding: 48rpx 40rpx;
-  background: #F8F8F8;
-  border-radius: 24rpx;
+  margin-bottom: 32rpx;
 }
 
-.card-level-row {
+.card-image {
+  width: 100%;
+  display: block;
+}
+
+/* ==================== 等级进度 ==================== */
+.progress-section {
+  margin-bottom: 40rpx;
+}
+
+.progress-link {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 8rpx;
   margin-bottom: 24rpx;
 }
 
-.card-level {
-  font-size: 34rpx;
-  font-weight: 500;
-  color: #1A1A1A;
-}
-
-.card-level-tag {
-  font-size: 16rpx;
-  color: #999999;
-}
-
-.card-points-row {
-  display: flex;
-  align-items: baseline;
-  gap: 8rpx;
-  margin-bottom: 16rpx;
-}
-
-.card-points-num {
-  font-size: 64rpx;
-  font-weight: 500;
-  color: #1A1A1A;
-  line-height: 1;
-}
-
-.card-points-label {
+.progress-link-text {
   font-size: 24rpx;
-  color: #999999;
+  color: var(--text-light);
+  letter-spacing: 2rpx;
 }
 
-.card-next-row {
-  margin-bottom: 24rpx;
+.progress-link-arrow {
+  font-size: 28rpx;
+  color: var(--text-muted);
 }
 
-.card-next-text {
-  font-size: 22rpx;
-  color: #999999;
+.progress-bar-area {
+  position: relative;
+  padding-bottom: 40rpx;
 }
 
-.card-progress {
+.progress-track {
   width: 100%;
   height: 6rpx;
-  background: #E8E8E8;
+  background: var(--border);
   border-radius: 3rpx;
-  overflow: hidden;
+  position: relative;
 }
 
-.card-progress-fill {
+.progress-fill {
   height: 100%;
-  background: #1A1A1A;
+  background: var(--text);
   border-radius: 3rpx;
   transition: width 0.5s ease;
 }
 
-/* ==================== Section ==================== */
-.section {
-  padding: 0 48rpx;
-  margin-bottom: 56rpx;
+.progress-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.progress-dot.active {
+  background: var(--text);
+  box-shadow: 0 0 0 6rpx rgba(44, 44, 44, 0.1);
+}
+
+.progress-labels {
+  position: relative;
+  height: 36rpx;
+  margin-top: 16rpx;
+}
+
+.progress-label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 18rpx;
+  color: var(--text-muted);
+  letter-spacing: 2rpx;
+  white-space: nowrap;
+}
+
+.progress-hint {
+  display: block;
+  text-align: center;
+  font-size: 22rpx;
+  color: var(--text-light);
+  letter-spacing: 1rpx;
+  margin-top: 12rpx;
+}
+
+/* ==================== 分割线 ==================== */
+.section-divider {
+  width: 64rpx;
+  height: 2rpx;
+  background: var(--gold);
+  margin: 0 auto 56rpx;
+}
+
+/* ==================== 权益区 ==================== */
+.benefits-section {
+  margin-bottom: 64rpx;
 }
 
 .section-title {
-  margin-bottom: 32rpx;
-}
-
-.title-text {
+  display: block;
+  font-family: Georgia, "Songti SC", serif;
   font-size: 30rpx;
-  font-weight: 500;
-  color: #1A1A1A;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 4rpx;
+  margin-bottom: 40rpx;
 }
 
-/* ==================== 等级体系 ==================== */
-.levels-list {
+.benefits-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32rpx 0;
+}
+
+.benefit-card {
+  width: 33.33%;
   display: flex;
   flex-direction: column;
-  gap: 0;
-}
-
-.level-item {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 28rpx 0;
-  border-bottom: 2rpx solid #F5F5F5;
+  gap: 16rpx;
+  padding: 0 12rpx;
+  box-sizing: border-box;
 }
 
-.level-item:last-child {
-  border-bottom: none;
-}
-
-.level-left {
-  display: flex;
-  flex-direction: column;
-  gap: 6rpx;
-}
-
-.level-name {
-  font-size: 28rpx;
-  font-weight: 500;
-  color: #1A1A1A;
-}
-
-.level-desc {
-  font-size: 22rpx;
-  color: #999999;
-}
-
-.level-points {
-  flex-shrink: 0;
-}
-
-.level-points-text {
-  font-size: 22rpx;
-  color: #CCCCCC;
-}
-
-/* ==================== 权益列表 ==================== */
-.benefits-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.benefit-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20rpx;
-  padding: 28rpx 0;
-  border-bottom: 2rpx solid #F5F5F5;
-}
-
-.benefit-item:last-child {
-  border-bottom: none;
-}
-
-.benefit-dot {
-  width: 8rpx;
-  height: 8rpx;
-  border-radius: 50%;
-  background: #CCCCCC;
-  margin-top: 12rpx;
-  flex-shrink: 0;
-}
-
-.benefit-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 6rpx;
+.benefit-icon {
+  width: 56rpx;
+  height: 56rpx;
 }
 
 .benefit-title {
-  font-size: 28rpx;
-  font-weight: 500;
-  color: #1A1A1A;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 2rpx;
+  text-align: center;
 }
 
 .benefit-desc {
-  font-size: 22rpx;
-  color: #999999;
+  font-size: 18rpx;
+  font-weight: 300;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 1rpx;
 }
 
-/* ==================== 底部留白 ==================== */
-.bottom-spacer {
-  height: 80rpx;
+/* ==================== 优惠券区 ==================== */
+.coupon-section {
+  margin-bottom: 64rpx;
+}
+
+.coupon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.coupon-card {
+  display: flex;
+  align-items: stretch;
+  background: #FFFFFF;
+  border: 1rpx solid #EEEEEE;
+  height: 160rpx;
+}
+
+.coupon-left {
+  width: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6rpx;
+  flex-shrink: 0;
+}
+
+.coupon-value {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 48rpx;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 2rpx;
+}
+
+.coupon-condition {
+  font-size: 18rpx;
+  color: var(--text-muted);
+  letter-spacing: 1rpx;
+}
+
+.coupon-divider {
+  width: 1rpx;
+  background: #EEEEEE;
+  position: relative;
+}
+
+.coupon-divider::before {
+  content: '';
+  position: absolute;
+  top: -10rpx;
+  left: -10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  background: var(--bg);
+  border-radius: 50%;
+}
+
+.coupon-divider::after {
+  content: '';
+  position: absolute;
+  bottom: -10rpx;
+  left: -10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  background: var(--bg);
+  border-radius: 50%;
+}
+
+.coupon-right {
+  flex: 1;
+  padding: 0 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coupon-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.coupon-name {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 1rpx;
+}
+
+.coupon-desc {
+  font-size: 18rpx;
+  color: var(--text-light);
+}
+
+.coupon-date {
+  font-size: 16rpx;
+  color: var(--text-muted);
+  margin-bottom: 6rpx;
+}
+
+.coupon-btn {
+  flex-shrink: 0;
+  padding: 12rpx 32rpx;
+  background: var(--text);
+  border: none;
+}
+
+.coupon-btn.claimed {
+  background: #EEEEEE;
+}
+
+.coupon-btn-text {
+  font-size: 18rpx;
+  color: #FFFFFF;
+  letter-spacing: 2rpx;
+}
+
+.coupon-btn.claimed .coupon-btn-text {
+  color: #AAAAAA;
+}
+
+/* ==================== 活动区 ==================== */
+.activity-section {
+  margin-bottom: 64rpx;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-card {
+  display: flex;
+  gap: 28rpx;
+  padding-bottom: 32rpx;
+  border-bottom: 1rpx solid var(--border);
+  margin-bottom: 32rpx;
+}
+
+.activity-card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.activity-img {
+  width: 240rpx;
+  height: 180rpx;
+  flex-shrink: 0;
+  border-radius: 4rpx;
+}
+
+.activity-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8rpx;
+}
+
+.activity-title {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 30rpx;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.activity-subtitle {
+  font-size: 22rpx;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.activity-date {
+  font-size: 18rpx;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 2rpx;
+}
+
+/* ==================== 活动弹窗 ==================== */
+.popup-mask {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-card {
+  width: 580rpx;
+  background: var(--bg);
+  border-radius: 12rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 16rpx; right: 16rpx;
+  width: 56rpx; height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.popup-close-icon {
+  font-size: 40rpx;
+  color: #FFFFFF;
+  text-shadow: 0 1rpx 4rpx rgba(0,0,0,0.3);
+  line-height: 1;
+}
+
+.popup-img {
+  width: 100%;
+  display: block;
+}
+
+/* ==================== 底部安全区 ==================== */
+.bottom-safe {
+  height: 180rpx;
 }

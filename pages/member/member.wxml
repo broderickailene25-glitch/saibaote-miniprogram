@@ -1,60 +1,136 @@
-<!--pages/member/member.wxml - 会员中心（喜茶极简风）-->
+<!--pages/member/member.wxml - 会员中心（Aesop暖白风 + 填充图标）-->
 <view class="page-member">
 
-  <nav-bar title="会员中心" showBack="{{true}}" bind:lefttap="onNavBack"></nav-bar>
+  <!-- 顶部：头像 + 用户名 + 等级 -->
+  <view class="user-header">
+    <view class="user-avatar">
+      <image class="avatar-icon" src="/assets/icons/member-avatar.svg" mode="aspectFit"></image>
+    </view>
+    <view class="user-info">
+      <text class="user-name">{{userInfo.nickName || '赛宝特用户'}}</text>
+      <view class="user-level-tag">
+        <text class="level-tag-text">{{memberInfo.levelName}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分享横幅 -->
+  <share-banner></share-banner>
 
   <!-- 会员卡 -->
   <view class="member-card">
-    <view class="card-level-row">
-      <text class="card-level">{{memberInfo.level}}</text>
-      <text class="card-level-tag">●</text>
-    </view>
-    <view class="card-points-row">
-      <text class="card-points-num">{{memberInfo.points}}</text>
-      <text class="card-points-label">积分</text>
-    </view>
-    <view class="card-next-row">
-      <text class="card-next-text">距 {{memberInfo.nextLevel}} 还差 {{memberInfo.pointsToNext}} 积分</text>
-    </view>
-    <view class="card-progress">
-      <view class="card-progress-fill" style="width: {{memberInfo.progressPercent}}%"></view>
-    </view>
+    <image class="card-image" src="/assets/icons/member-card-v2.png" mode="widthFix"></image>
   </view>
 
-  <!-- 会员等级说明 -->
-  <view class="section">
-    <view class="section-title">
-      <text class="title-text">等级体系</text>
+  <!-- 等级进度 -->
+  <view class="progress-section">
+    <view class="progress-link">
+      <text class="progress-link-text">等级说明</text>
+      <text class="progress-link-arrow">›</text>
     </view>
-    <view class="levels-list">
-      <view class="level-item" wx:for="{{levels}}" wx:key="name">
-        <view class="level-left">
-          <text class="level-name">{{item.name}}</text>
-          <text class="level-desc">{{item.desc}}</text>
+
+    <view class="progress-bar-area">
+      <view class="progress-track">
+        <view class="progress-fill" style="width: {{memberInfo.progressPercent}}%"></view>
+        <view class="progress-dot active" style="left: {{memberInfo.progressPercent}}%"></view>
+      </view>
+      <view class="progress-labels">
+        <text class="progress-label" wx:for="{{levelLabels}}" wx:key="name"
+          style="left: {{item.percent}}%">
+          {{item.name}}
+        </text>
+      </view>
+    </view>
+
+    <text class="progress-hint">当前经验值 {{memberInfo.exp}}，差 {{memberInfo.pointsToNext}} 升级</text>
+  </view>
+
+  <!-- 分割线 -->
+  <view class="section-divider"></view>
+
+  <!-- 专属优惠券 -->
+  <view class="coupon-section" wx:if="{{coupons.length > 0}}">
+    <text class="section-title">专属优惠</text>
+    <view class="coupon-list">
+      <view class="coupon-card" wx:for="{{coupons}}" wx:key="_id">
+        <view class="coupon-left">
+          <text class="coupon-value">¥{{item.value}}</text>
+          <text class="coupon-condition">满{{item.minOrder}}可用</text>
         </view>
-        <view class="level-points">
-          <text class="level-points-text">{{item.minPoints > 0 ? item.minPoints + '积分起' : ''}}</text>
+        <view class="coupon-divider"></view>
+        <view class="coupon-right">
+          <view class="coupon-info">
+            <text class="coupon-name">{{item.name}}</text>
+            <text class="coupon-desc">{{item.desc}}</text>
+            <text class="coupon-date">有效期至 {{item.endDate}}</text>
+          </view>
+          <view class="coupon-btn {{item.status === 'claimed' ? 'claimed' : ''}}" bindtap="claimCoupon" data-id="{{item._id}}">
+            <text class="coupon-btn-text">{{item.status === 'claimed' ? '已领取' : '立即领取'}}</text>
+          </view>
         </view>
       </view>
     </view>
   </view>
 
-  <!-- 会员权益 -->
-  <view class="section">
-    <view class="section-title">
-      <text class="title-text">会员权益</text>
-    </view>
-    <view class="benefits-list">
-      <view class="benefit-item" wx:for="{{benefits}}" wx:key="title">
-        <view class="benefit-dot"></view>
-        <view class="benefit-info">
-          <text class="benefit-title">{{item.title}}</text>
-          <text class="benefit-desc">{{item.desc}}</text>
+  <!-- 金色分割线 -->
+  <view class="section-divider"></view>
+
+  <!-- 会员活动 -->
+  <view class="activity-section">
+    <text class="section-title">会员活动</text>
+    <view class="activity-list">
+      <view class="activity-card" wx:for="{{activities}}" wx:key="_id" bindtap="goToDetail" data-id="{{item._id}}">
+        <image class="activity-img" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="activity-info">
+          <text class="activity-title">{{item.title}}</text>
+          <text class="activity-subtitle">{{item.subtitle}}</text>
+          <text class="activity-date">{{item.startDate}} — {{item.endDate}}</text>
         </view>
       </view>
     </view>
   </view>
 
-  <view class="bottom-spacer"></view>
+  <!-- 金色分割线 -->
+  <view class="section-divider"></view>
+
+  <!-- 会员专享 -->
+  <view class="benefits-section">
+    <text class="section-title">会员专享</text>
+    <view class="benefits-grid">
+      <view class="benefit-card" wx:for="{{exclusiveBenefits}}" wx:key="title">
+        <image class="benefit-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text class="benefit-title">{{item.title}}</text>
+        <text class="benefit-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 会员月享 -->
+  <view class="benefits-section">
+    <text class="section-title">会员月享</text>
+    <view class="benefits-grid">
+      <view class="benefit-card" wx:for="{{monthlyBenefits}}" wx:key="title">
+        <image class="benefit-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text class="benefit-title">{{item.title}}</text>
+        <text class="benefit-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部安全区 -->
+  <view class="bottom-safe"></view>
+
+  <!-- ==================== 活动弹窗 ==================== -->
+  <view class="popup-mask" wx:if="{{showPopup}}" bindtap="closePopup">
+    <view class="popup-card" catchtap="preventTap">
+      <view class="popup-close" catchtap="closePopup">
+        <text class="popup-close-icon">×</text>
+      </view>
+      <image class="popup-img" src="{{popupImage}}" mode="widthFix" bindtap="goToActivity"></image>
+    </view>
+  </view>
+
+  <!-- 自定义TabBar -->
+  <custom-tabbar selected="{{2}}" list="{{tabList}}"></custom-tabbar>
 
 </view>

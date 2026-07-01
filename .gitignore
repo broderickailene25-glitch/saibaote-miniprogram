@@ -15,3 +15,13 @@ node_modules/
 
 # Agent/session state
 .omx/
+.superpowers/
+
+# Session logs
+_session/
+
+# Version backups
+_versions/
+
+# npm build
+miniprogram_npm/

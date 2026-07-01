@@ -1,12 +1,8 @@
 {
   "usingComponents": {
-    "nav-bar": "/components/nav-bar/nav-bar",
-    "product-card": "/components/product-card/product-card",
-    "section-header": "/components/section-header/section-header"
+    "custom-tabbar": "/components/custom-tabbar/custom-tabbar"
   },
   "navigationStyle": "custom",
   "navigationBarTitleText": "",
-  "backgroundColor": "#F8F7F4",
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark"
+  "backgroundColor": "#FAFAF8"
 }

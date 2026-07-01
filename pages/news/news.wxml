@@ -3,9 +3,34 @@
 
   <nav-bar title="资讯" showBack="{{false}}"></nav-bar>
 
-  <!-- ==================== 全屏封面 ==================== -->
+  <!-- ==================== 全屏封面（轮播） ==================== -->
   <view class="fullscreen-cover" wx:if="{{!showDetail}}">
-    <image src="{{coverImage}}" mode="aspectFill" class="cover-bg"></image>
+    <swiper
+      class="cover-swiper"
+      circular
+      autoplay="{{false}}"
+      current="{{swiperIndex}}"
+      bindchange="onSwiperChange"
+      duration="300"
+    >
+      <block wx:for="{{swiperList}}" wx:key="_id">
+        <swiper-item class="cover-slide">
+          <image src="{{item.cover}}" mode="aspectFill" class="cover-bg"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!-- 轮播指示点 -->
+    <view class="swiper-dots" wx:if="{{swiperList.length > 1}}">
+      <view
+        class="swiper-dot {{index === swiperIndex ? 'active' : ''}}"
+        wx:for="{{swiperList}}"
+        wx:key="_id"
+        data-index="{{index}}"
+        bindtap="swipeTo"
+      ></view>
+    </view>
+
     <!-- 玻璃质感按钮 -->
     <view class="glass-btns">
       <view class="glass-btn glass-btn-primary" bindtap="openArticle">
@@ -18,7 +43,7 @@
     </view>
   </view>
 
-  <!-- ==================== 文章详情 ==================== -->
+  <!-- ==================== 文章详情（Esther 编辑排版） ==================== -->
   <scroll-view scroll-y class="detail-scroll" wx:if="{{showDetail && currentItem}}">
 
     <!-- 返回按钮 -->
@@ -27,18 +52,19 @@
       <text class="back-label">返回</text>
     </view>
 
-    <!-- 全宽封面图 -->
+    <!-- 封面图：固定高度裁切 -->
     <view class="detail-cover">
-      <image lazy-load src="{{currentItem.image}}" mode="widthFix" class="cover-img"></image>
+      <image lazy-load src="{{currentItem.image}}" mode="aspectFill" class="cover-img"></image>
     </view>
 
-    <!-- 标题区 -->
+    <!-- 标题区（编辑风） -->
     <view class="detail-hero">
+      <text class="detail-num">01</text>
       <text class="detail-title">{{currentItem.title}}</text>
-      <view class="detail-meta">
-        <text class="meta-label">农业资讯</text>
-        <text class="meta-dot">·</text>
-        <text class="meta-text">{{currentItem.createTime}}</text>
+      <view class="meta-row">
+        <text class="meta-col">{{currentItem.column || '农业资讯'}}</text>
+        <view class="meta-dot"></view>
+        <text class="meta-date">{{currentItem.createTime}}</text>
       </view>
     </view>
 
@@ -49,14 +75,14 @@
 
     <!-- 底部 -->
     <view class="detail-end">
-      <view class="end-divider"></view>
-      <text class="end-text">— END —</text>
+      <view class="end-line"></view>
+      <text class="end-text">END</text>
     </view>
 
     <view class="bottom-spacer"></view>
   </scroll-view>
 
   <!-- 自定义TabBar -->
-  <custom-tabbar selected="{{2}}" list="{{tabList}}"></custom-tabbar>
+  <custom-tabbar selected="{{3}}" list="{{tabList}}"></custom-tabbar>
 
 </view>

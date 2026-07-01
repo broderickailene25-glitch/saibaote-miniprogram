@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "nav-bar": "/components/nav-bar/nav-bar"
+    "nav-bar": "/components/nav-bar/nav-bar",
+    "share-banner": "/components/share-banner/share-banner"
   },
+  "navigationStyle": "custom",
   "navigationBarTitleText": "购物车"
 }

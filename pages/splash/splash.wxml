@@ -1,0 +1,35 @@
+<!-- pages/splash/splash.wxml - 开屏视频页 -->
+<view class="splash-page">
+  <!-- 视频读取中时显示加载提示 -->
+  <view class="loading-area" wx:if="{{!videoSrc}}">
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 视频就绪后播放 -->
+  <video
+    wx:if="{{videoSrc}}"
+    id="splashVideo"
+    class="splash-video"
+    src="{{videoSrc}}"
+    autoplay="{{true}}"
+    muted="{{true}}"
+    loop="{{false}}"
+    object-fit="cover"
+    bindready="onVideoReady"
+    bindended="onVideoEnded"
+    binderror="onVideoError"
+    show-center-play-btn="{{false}}"
+    show-play-btn="{{false}}"
+    show-fullscreen-btn="{{false}}"
+    enable-progress-gesture="{{false}}"
+    controls="{{false}}"
+  ></video>
+
+  <!-- 跳过按钮（延迟显示） -->
+  <view class="skip-btn {{showSkip ? '' : 'skip-hidden'}}" bindtap="onSkip">
+    <text class="skip-text">跳过</text>
+  </view>
+
+  <!-- 调试信息 -->
+  <view class="debug-info">{{debugInfo}}</view>
+</view>

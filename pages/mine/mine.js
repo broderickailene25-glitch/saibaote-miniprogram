@@ -10,22 +10,11 @@ Page({
       completed: 0
     },
     tabList: [
-      {
-        pagePath: "/pages/index/index",
-        text: "首页"
-      },
-      {
-        pagePath: "/pages/products/products",
-        text: "产品"
-      },
-      {
-        pagePath: "/pages/news/news",
-        text: "资讯"
-      },
-      {
-        pagePath: "/pages/mine/mine",
-        text: "我的"
-      }
+      { pagePath: '/pages/index/index', text: '首页' },
+      { pagePath: '/pages/products/products', text: '产品' },
+      { pagePath: '/pages/member/member', text: '会员' },
+      { pagePath: '/pages/news/news', text: '资讯' },
+      { pagePath: '/pages/mine/mine', text: '我的' }
     ]
   },
 

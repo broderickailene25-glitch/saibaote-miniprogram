@@ -1,11 +1,8 @@
 <!--pages/products/products.wxml — Aesop式编辑排版-->
 <view class="page-products">
 
-  <!-- 品牌头部 -->
-  <view class="header">
-    <text class="brand">Saibaote</text>
-    <text class="page-label">Collection</text>
-  </view>
+  <!-- 分享横幅 -->
+  <share-banner></share-banner>
 
   <!-- ==================== 产品1：全出血大图 ==================== -->
   <view class="product-hero" wx:if="{{products.length > 0}}">
@@ -42,7 +39,10 @@
 
   <!-- ==================== 产品2：横向卡片 ==================== -->
   <view class="product-alt" wx:if="{{products.length > 1}}">
-    <text class="alt__num">02</text>
+    <view class="alt__header">
+      <text class="alt__label">Also Available</text>
+      <text class="alt__count">02</text>
+    </view>
     <view class="alt__card">
       <image class="alt__image" src="{{products[1].images[0]}}" mode="aspectFill" bindtap="goToDetail" data-id="{{products[1]._id}}"></image>
       <view class="alt__info">
@@ -66,8 +66,20 @@
     </view>
   </view>
 
-  <!-- 底部留白 -->
+  <!-- 底部留白（为购物车栏+TabBar腾空间） -->
   <view class="bottom-safe"></view>
+
+  <!-- ==================== 购物车栏 ==================== -->
+  <view class="cart-bar" wx:if="{{showCartBar}}">
+    <view class="cart-bar__left" bindtap="goToCartPage">
+      <text class="cart-bar__icon">🛒</text>
+      <view class="cart-bar__info">
+        <text class="cart-bar__count">{{cartCount}} 件商品</text>
+        <text class="cart-bar__total">¥{{cartTotal}}</text>
+      </view>
+    </view>
+    <text class="cart-bar__btn" bindtap="goToCartPage">去结算 →</text>
+  </view>
 
   <custom-tabbar selected="{{1}}" list="{{tabList}}"></custom-tabbar>
 
